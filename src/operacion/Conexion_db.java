@@ -7,10 +7,10 @@ package operacion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
-import java.util.Scanner;
+
 
 public class Conexion_db {
-    Scanner s=new Scanner(System.in);
+
     
     public Connection conexion(){
         //Tipo de dato conncetion que tiene como valor null

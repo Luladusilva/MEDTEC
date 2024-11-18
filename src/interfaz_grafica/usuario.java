@@ -318,45 +318,7 @@ public class usuario extends javax.swing.JFrame implements Interface{
     }//GEN-LAST:event_campDniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Paciente p;
-        String nombre = campNombre.getText();
-        String apellido = campApellido.getText();
-        String email = campEspecialidad.getText();
-        int celular = Integer.parseInt(campNum.getText());
-        int dni = Integer.parseInt(campDni.getText());
-        String fecha_nac = campFecha_nac.getText();
-        String fecha_cita = campFecha_cita.getText();
-        String especialidad = campEspecialidad.getText();
-        String genero = comboxGenero.getSelectedItem().toString();
-        p = new Paciente(nombre, apellido, email, celular, dni,fecha_nac,fecha_cita,especialidad,genero) {
-            @Override
-            public void registrar_paciente() {
-                try {
-                    PreparedStatement guardar = conect.prepareStatement("INSERT INTO Paciente(Nombre, Apellido, Email, Celular, Dni, Fecha_nac, Fecha_cita, Especialidad, Genero) VALUES (?,?,?,?,?,?,?,?,?)");
-                    guardar.setString(1,nombre);
-                    guardar.setString(2, apellido);
-                    guardar.setString(3,email);
-                    guardar.setInt(4, celular);
-                    guardar.setInt(5, dni);
-                    guardar.setString(6, fecha_nac);
-                    guardar.setString(7, fecha_cita);
-                    guardar.setString(8, especialidad);
-                    guardar.setString(9, genero);
-                    guardar.executeUpdate();
-                    JOptionPane.showMessageDialog(null, " Cita agendada");
-                    campNombre.setText("");
-                    campApellido.setText("");
-                    campEspecialidad.setText("");
-                    campNum.setText("");
-                    campDni.setText("");
-                    campFecha_nac.setText("");
-                    campFecha_cita.setText("");
-                    campEspecialidad.setText("");
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e + " No se pudo agendar la cita");
-                }
-            }
-        };
+        
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
