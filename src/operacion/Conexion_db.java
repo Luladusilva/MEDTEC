@@ -11,12 +11,6 @@ import java.util.Scanner;
 
 public class Conexion_db {
     Scanner s=new Scanner(System.in);
-    public int codigo(){
-        int cod;
-        System.out.println("Codigo: ");
-        cod = s.nextInt();
-        return cod;
-    }
     
     public Connection conexion(){
         //Tipo de dato conncetion que tiene como valor null
@@ -25,7 +19,7 @@ public class Conexion_db {
     //Exceocion para que si o si se ejecute el codigo
     try {
         //Funcion para enlazar a nuestra base de datos
-        enlazar = DriverManager.getConnection("jdbc:mysql://localhost/Hospital/root/"+codigo());
+        enlazar = DriverManager.getConnection("jdbc:mysql://localhost/Hospital/root/");
     } catch (Exception e) {
         //Mensaje si no se realizo bien la operacion
         JOptionPane.showMessageDialog(null, e + " No fue posible establecer la conexión");
