@@ -6,6 +6,7 @@ package interfaz_grafica;
 
 import interfaz_class.Interface;
 
+
 /**
  *
  * @author HP
