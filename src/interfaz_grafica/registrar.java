@@ -46,7 +46,7 @@ public class registrar extends javax.swing.JFrame{
         jLabel3 = new javax.swing.JLabel();
         campApellido = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        comboxGenero = new javax.swing.JComboBox<>();
+        comboxEspecialidad = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         campEspecialidad = new javax.swing.JTextField();
@@ -60,7 +60,7 @@ public class registrar extends javax.swing.JFrame{
         campFecha_cita = new javax.swing.JFormattedTextField();
         campNum = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        campFecha_nac = new javax.swing.JFormattedTextField();
+        campHoracita = new javax.swing.JFormattedTextField();
         jLabel18 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -132,7 +132,7 @@ public class registrar extends javax.swing.JFrame{
                 campApellidoActionPerformed(evt);
             }
         });
-        jPanel3.add(campApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(299, 124, 158, 30));
+        jPanel3.add(campApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 120, 158, 30));
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 204));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
@@ -140,8 +140,13 @@ public class registrar extends javax.swing.JFrame{
         jLabel5.setText("Apellido");
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 160, -1, -1));
 
-        comboxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Masculino", "Femenino" }));
-        jPanel3.add(comboxGenero, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 249, 159, 32));
+        comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Masculino", "Femenino" }));
+        comboxEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboxEspecialidadActionPerformed(evt);
+            }
+        });
+        jPanel3.add(comboxEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 249, 159, 32));
 
         jLabel7.setText("Fecha de cita");
         jPanel3.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 440, -1, -1));
@@ -156,7 +161,7 @@ public class registrar extends javax.swing.JFrame{
         });
         jPanel3.add(campEspecialidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 158, 30));
 
-        jLabel9.setText("Género");
+        jLabel9.setText("Especialidad");
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
@@ -189,7 +194,7 @@ public class registrar extends javax.swing.JFrame{
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 560, 120, 40));
 
-        jLabel16.setText("Fecha de Nacimiento");
+        jLabel16.setText("Hora de cita");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
 
         campFecha_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
@@ -205,8 +210,8 @@ public class registrar extends javax.swing.JFrame{
         jLabel17.setText("Documento de identidad (DNI)");
         jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, -1, -1));
 
-        campFecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        jPanel3.add(campFecha_nac, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 352, 160, 30));
+        campHoracita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jPanel3.add(campHoracita, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 352, 160, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
@@ -219,7 +224,7 @@ public class registrar extends javax.swing.JFrame{
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 554, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -252,10 +257,10 @@ public class registrar extends javax.swing.JFrame{
     String email = campEspecialidad.getText();
     int celular = Integer.parseInt(campNum.getText());
     int dni = Integer.parseInt(campDni.getText());
-    String fecha_nac = campFecha_nac.getText();
+    String fecha_nac = campHoracita.getText();
     String fecha_cita = campFecha_cita.getText();
     String especialidad = campEspecialidad.getText();
-    String genero = comboxGenero.getSelectedItem().toString();
+    String genero = comboxEspecialidad.getSelectedItem().toString();
     p = new Paciente(nombre, apellido, email, celular, dni,fecha_nac,fecha_cita,especialidad,genero) {
         @Override
         public void registrar_paciente() {
@@ -277,7 +282,7 @@ public class registrar extends javax.swing.JFrame{
             campEspecialidad.setText("");
             campNum.setText("");
             campDni.setText("");
-            campFecha_nac.setText("");
+            campHoracita.setText("");
             campFecha_cita.setText("");
             campEspecialidad.setText("");
             } catch (Exception e) {
@@ -292,15 +297,19 @@ public class registrar extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_campNumActionPerformed
 
+    private void comboxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxEspecialidadActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campApellido;
     private javax.swing.JTextField campDni;
     private javax.swing.JTextField campEspecialidad;
     private javax.swing.JFormattedTextField campFecha_cita;
-    private javax.swing.JFormattedTextField campFecha_nac;
+    private javax.swing.JFormattedTextField campHoracita;
     private javax.swing.JTextField campNombre;
     private javax.swing.JTextField campNum;
-    private javax.swing.JComboBox<String> comboxGenero;
+    private javax.swing.JComboBox<String> comboxEspecialidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
