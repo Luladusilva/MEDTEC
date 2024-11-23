@@ -190,6 +190,12 @@ public class historial extends javax.swing.JFrame {
 
         jLabel3.setText("Fecha:");
 
+        jTFiltFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTFiltFechaKeyTyped(evt);
+            }
+        });
+
         jLabel4.setText("Especialidad:");
 
         jLabel5.setText("Estado");
@@ -276,14 +282,88 @@ public class historial extends javax.swing.JFrame {
     }//GEN-LAST:event_jBUsuarioActionPerformed
 
     private void jCBEspecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEspecActionPerformed
+        // Obtener la especialidad seleccionada del ComboBox
         String especialidad = jCBEspec.getSelectedItem().toString();
         
+        // Configurar el modelo de la tabla
+        DefaultTableModel thistorial = new DefaultTableModel();
+        thistorial.addColumn("FECHA");
+        thistorial.addColumn("HORA");
+        thistorial.addColumn("ESPECIALIDAD");
+        thistorial.addColumn("ESTADO");
+        tableHistorial.setModel(thistorial);
+        
+        // Arreglo para almacenar temporalmente los datos de las filas
+        String []datos = new String[4];
+        
+        try {
+            String query = "SELECT FECHA, HORA, ESPECIALIDAD, ESTADO FROM Paciente WHERE ESPECIALIDAD = ?";
+            PreparedStatement ps = conect.prepareStatement(query);
+            ps.setString(1, especialidad);
+            
+            // Ejecutar la consulta
+            ResultSet resultado = ps.executeQuery();
+            
+            while(resultado.next()){
+                datos[0] = resultado.getString(1);
+                datos[1] = resultado.getString(2);
+                datos[2] = resultado.getString(3);
+                datos[3] = resultado.getString(4);
+                thistorial.addRow(datos);
+            }
+            
+            // Actualizar la tabla con el modelo
+            tableHistorial.setModel(thistorial);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
+        }
         
     }//GEN-LAST:event_jCBEspecActionPerformed
 
     private void jCBEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEstadoActionPerformed
-        // TODO add your handling code here:
+        // Obtener la especialidad seleccionada del ComboBox
+        String estado = jCBEstado.getSelectedItem().toString();
+        
+        // Configurar el modelo de la tabla
+        DefaultTableModel thistorial = new DefaultTableModel();
+        thistorial.addColumn("FECHA");
+        thistorial.addColumn("HORA");
+        thistorial.addColumn("ESPECIALIDAD");
+        thistorial.addColumn("ESTADO");
+        tableHistorial.setModel(thistorial);
+        
+        // Arreglo para almacenar temporalmente los datos de las filas
+        String []datos = new String[4];
+        
+        try {
+            String query = "SELECT FECHA, HORA, ESPECIALIDAD, ESTADO FROM Paciente WHERE ESTADO = ?";
+            PreparedStatement ps = conect.prepareStatement(query);
+            ps.setString(1, estado);
+            
+            // Ejecutar la consulta
+            ResultSet resultado = ps.executeQuery();
+            
+            while(resultado.next()){
+                datos[0] = resultado.getString(1);
+                datos[1] = resultado.getString(2);
+                datos[2] = resultado.getString(3);
+                datos[3] = resultado.getString(4);
+                thistorial.addRow(datos);
+            }
+            
+            // Actualizar la tabla con el modelo
+            tableHistorial.setModel(thistorial);
+            
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
+        }
+                           
     }//GEN-LAST:event_jCBEstadoActionPerformed
+
+    private void jTFiltFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFiltFechaKeyTyped
+        
+    }//GEN-LAST:event_jTFiltFechaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
