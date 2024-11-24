@@ -5,12 +5,15 @@ import java.sql.*;
 import operacion.Conexion_db;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableRowSorter;
+import javax.swing.RowFilter;
+
 
 public class historial extends javax.swing.JFrame {
 
     Conexion_db enlace = new Conexion_db();
     Connection conect = enlace.conexion();
-    
+    private TableRowSorter<DefaultTableModel> trs;
     
     public historial() {
         initComponents();
@@ -362,18 +365,15 @@ public class historial extends javax.swing.JFrame {
     }//GEN-LAST:event_jCBEstadoActionPerformed
 
     private void jTFiltFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFiltFechaKeyTyped
-        jTFiltFecha.addKeyListener(new KeyAdapter(){
-        
-        @Override
-        public void keyReleased(KeyEvent ke){
-                
-            trs.setRowFilter (RowFilter.regexFilter*-(jTFiltFecha.getText(),1));
-                
-        }
-    });
-        
-        trs = new TableRowSorter(dtm);
+    // Verifica que trs esté inicializado
+    if (trs == null) {
+        trs = new TableRowSorter<>((DefaultTableModel) tableHistorial.getModel());
         tableHistorial.setRowSorter(trs);
+    }
+
+    // Aplica el filtro basado en el texto del campo
+    String filtro = jTFiltFecha.getText();
+    trs.setRowFilter(RowFilter.regexFilter("(?i)" + filtro, 1)); // Filtro para la columna de FECHA (columna 1) 
     }//GEN-LAST:event_jTFiltFechaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
