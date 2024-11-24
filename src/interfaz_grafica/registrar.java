@@ -248,14 +248,16 @@ public class registrar extends javax.swing.JFrame{
         @Override
         public void registrarCita() {
             try {
-            PreparedStatement guardar = conect.prepareStatement("INSERT INTO Cita(Fecha, Hora) VALUES (?,?)");
-            guardar.setString(1,fecha_cita);
-            guardar.setString(2,hora_cita);
-            guardar.executeUpdate();
+            PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora) VALUES (?,?)");
+            guardar_cita.setString(1,fecha_cita);
+            guardar_cita.setString(2,hora_cita);
+            guardar_cita.executeUpdate();
+            PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(Nom_Espec) VALUES(?)");
+            guardar_esp.setString(1, especialidad);
+            guardar_esp.executeUpdate();
             JOptionPane.showMessageDialog(null, " Cita agendada");
             campHora_cita.setText("");
             campFecha_cita.setText("");
-            
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(null, e + " No se pudo agendar la cita");
             }

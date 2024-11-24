@@ -14,6 +14,10 @@ public abstract class Cita {
     private String especialidad;
     private String estado;
     
+    public Cita(String especialidad){
+        this.especialidad = especialidad;
+    }
+    
     public Cita(String fecha, String hora, String especialidad){
         this.fecha = fecha;
         this.hora = hora;
