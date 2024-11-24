@@ -362,7 +362,18 @@ public class historial extends javax.swing.JFrame {
     }//GEN-LAST:event_jCBEstadoActionPerformed
 
     private void jTFiltFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFiltFechaKeyTyped
+        jTFiltFecha.addKeyListener(new KeyAdapter(){
         
+        @Override
+        public void keyReleased(KeyEvent ke){
+                
+            trs.setRowFilter (RowFilter.regexFilter*-(jTFiltFecha.getText(),1));
+                
+        }
+    });
+        
+        trs = new TableRowSorter(dtm);
+        tableHistorial.setRowSorter(trs);
     }//GEN-LAST:event_jTFiltFechaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
