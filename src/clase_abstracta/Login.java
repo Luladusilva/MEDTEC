@@ -10,11 +10,21 @@ package clase_abstracta;
  */
 public abstract class Login {
 
-    protected String dni;
+    private String dni;
 
     public Login(String dni) {
         this.dni = dni;
     }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
+    
 
     public abstract void autenticar();
 }
