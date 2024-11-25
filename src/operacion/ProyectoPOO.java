@@ -4,7 +4,7 @@
  */
 package operacion;
 
-import interfaz_grafica.menu_principal;
+import interfaz_grafica.*;
 
 /**
  *
@@ -19,6 +19,22 @@ public class ProyectoPOO {
         menu_principal men = new menu_principal();
         men.setVisible(true);
         men.setLocationRelativeTo(null);
+        
+        Login log = new Login();
+        log.setVisible(true);
+        log.setLocationRelativeTo(null);
+        
+        historial hs = new historial();
+        hs.setVisible(true);
+        hs.setLocationRelativeTo(null);
+        
+        usuario user = new usuario();
+        user.setVisible(true);
+        user.setLocationRelativeTo(null);
+        
+        registrar res = new registrar();
+        res.setVisible(true);
+        res.setLocationRelativeTo(null);
     }
     
 }
