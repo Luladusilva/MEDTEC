@@ -328,16 +328,32 @@ public class usuario extends javax.swing.JFrame implements Interface{
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     Usuario us;
-    String dni = camp_dni.getText();
-    String nacimiento= f_nacimiento.getText();
+    int dni = Integer.parseInt(camp_dni.getText());
+    int nacimiento= Integer.parseInt(f_nacimiento.getText());
     String nombre = N_usuario.getText();
     String apellido = A_usuario.getText();
-    String numero =Num_usuario.getText();
+    int numero = Integer.parseInt(Num_usuario.getText());
     String genero = G_usuario.getSelectedItem().toString();
     String contra =con_usuario.getText();
            
-    //us = new Usuario(dni, nacimiento, nombre, apellido, numero, genero) {
-        
+    us = new Usuario(dni, genero, nombre, apellido, numero, nacimiento){
+            @Override
+            public void usuario() {
+                try {
+                PreparedStatement guardar_user = conect.prepareStatement("INSERT INTO Usuario(DNI, NOMBRE,APELLIDO,GENERO,NUMERO,FECHA_NACIMIENTO) VALUES (?,?,?,?,?,?)");
+                guardar_user.setInt(1,dni);
+                guardar_user.setString(2,nombre);
+                guardar_user.setString(3, apellido);
+                guardar_user.setString(4, genero);
+                guardar_user.setInt(5,numero);
+                guardar_user.setInt(6, nacimiento);
+                guardar_user.executeUpdate();
+                JOptionPane.showMessageDialog(null, " Cita agendada");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e + " No se pudo agendar la cita");
+                }
+             }
+        };
         
     }//GEN-LAST:event_jButton1ActionPerformed
     
