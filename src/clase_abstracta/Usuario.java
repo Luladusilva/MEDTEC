@@ -8,7 +8,7 @@ package clase_abstracta;
  *
  * @author HP
  */
-public abstract class Usuario {
+public abstract class Usuario{
     private int id_paciente;
     private String nombre;
     private String apellido;
@@ -17,6 +17,7 @@ public abstract class Usuario {
     private int dni;
     
     public Usuario(){
+        
     }
 
     public Usuario(int id_paciente, String nombre, String apellido, String email, int celular, int dni) {
