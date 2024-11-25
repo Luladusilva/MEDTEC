@@ -8,6 +8,13 @@ package clase_abstracta;
  *
  * @author JORDAN
  */
-public class Login {
-    
+public abstract class Login {
+
+    protected String dni;
+
+    public Login(String dni) {
+        this.dni = dni;
+    }
+
+    public abstract void autenticar();
 }
