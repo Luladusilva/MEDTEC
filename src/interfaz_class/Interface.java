@@ -9,7 +9,6 @@ package interfaz_class;
  * @author HP
  */
 public interface Interface {
-    
     public void mostrar();
     
 }

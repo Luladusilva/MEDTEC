@@ -8,17 +8,20 @@ package clase_abstracta;
  *
  * @author emili
  */
-abstract class Cita {
+public abstract class Cita {
     private String fecha;
     private String hora;
     private String especialidad;
     private String estado;
     
-    public Cita(String fecha, String hora, String especialidad, String estado){
+    public Cita(String especialidad){
+        this.especialidad = especialidad;
+    }
+    
+    public Cita(String fecha, String hora, String especialidad){
         this.fecha = fecha;
         this.hora = hora;
         this.especialidad = especialidad;
-        this.estado = estado;
     }
 
     public String getFecha() {
@@ -45,13 +48,5 @@ abstract class Cita {
         this.especialidad = especialidad;
     }
 
-    public String getEstado() {
-        return estado;
-    }
-
-    public void setEstado(String estado) {
-        this.estado = estado;
-    }
-    
     public abstract void registrarCita();
 }
