@@ -3,19 +3,22 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package interfaz_grafica;
-
+import clase_abstracta.Usuario; 
 import interfaz_class.Interface;
-
+import java.sql.*;
+import javax.swing.JOptionPane;
+import operacion.Conexion_db;
 
 /**
  *
  * @author HP
  */
 public class usuario extends javax.swing.JFrame implements Interface{
-
-    /**
-     * Creates new form agendar_cita
-     */
+    
+    Conexion_db enlace = new Conexion_db();
+    Connection conect = enlace.conexion();
+        
+    
     public usuario() {
         initComponents();
     }
@@ -40,20 +43,20 @@ public class usuario extends javax.swing.JFrame implements Interface{
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        campNombre = new javax.swing.JTextField();
-        campApellido = new javax.swing.JTextField();
+        N_usuario = new javax.swing.JTextField();
+        A_usuario = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        comboxGenero = new javax.swing.JComboBox<>();
+        G_usuario = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        campNum = new javax.swing.JTextField();
-        campFecha_nac = new javax.swing.JFormattedTextField();
-        campDni = new javax.swing.JTextField();
+        Num_usuario = new javax.swing.JTextField();
+        f_nacimiento = new javax.swing.JFormattedTextField();
+        camp_dni = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
-        campFecha_nac1 = new javax.swing.JFormattedTextField();
+        con_usuario = new javax.swing.JFormattedTextField();
         jLabel6 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
@@ -143,9 +146,9 @@ public class usuario extends javax.swing.JFrame implements Interface{
 
         jLabel2.setText("Nombres y Apellidos:");
 
-        campApellido.addActionListener(new java.awt.event.ActionListener() {
+        A_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campApellidoActionPerformed(evt);
+                A_usuarioActionPerformed(evt);
             }
         });
 
@@ -154,10 +157,10 @@ public class usuario extends javax.swing.JFrame implements Interface{
         jLabel5.setForeground(new java.awt.Color(204, 204, 204));
         jLabel5.setText("Apellido");
 
-        comboxGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Masculino", "Femenino" }));
-        comboxGenero.addActionListener(new java.awt.event.ActionListener() {
+        G_usuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Masculino", "Femenino" }));
+        G_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                comboxGeneroActionPerformed(evt);
+                G_usuarioActionPerformed(evt);
             }
         });
 
@@ -171,17 +174,17 @@ public class usuario extends javax.swing.JFrame implements Interface{
 
         jLabel16.setText("Fecha de Nacimiento:");
 
-        campNum.addActionListener(new java.awt.event.ActionListener() {
+        Num_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campNumActionPerformed(evt);
+                Num_usuarioActionPerformed(evt);
             }
         });
 
-        campFecha_nac.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        f_nacimiento.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
-        campDni.addActionListener(new java.awt.event.ActionListener() {
+        camp_dni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campDniActionPerformed(evt);
+                camp_dniActionPerformed(evt);
             }
         });
 
@@ -189,7 +192,7 @@ public class usuario extends javax.swing.JFrame implements Interface{
 
         jLabel18.setText("Contraseña:");
 
-        campFecha_nac1.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        con_usuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
 
         jLabel6.setBackground(new java.awt.Color(204, 204, 204));
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
@@ -213,8 +216,8 @@ public class usuario extends javax.swing.JFrame implements Interface{
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campDni, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(N_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(camp_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jLabel17)
                     .addGroup(layout.createSequentialGroup()
@@ -224,21 +227,21 @@ public class usuario extends javax.swing.JFrame implements Interface{
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel18)
-                                    .addComponent(campFecha_nac1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(con_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel6))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(comboxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(G_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(A_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 199, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel14)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(2, 2, 2)
-                        .addComponent(campNum, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(Num_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel16)
-                    .addComponent(campFecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(f_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(106, 106, 106))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -262,17 +265,17 @@ public class usuario extends javax.swing.JFrame implements Interface{
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel17)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campDni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(camp_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel16)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campFecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(f_nacimiento, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(campNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(N_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(A_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -283,12 +286,12 @@ public class usuario extends javax.swing.JFrame implements Interface{
                     .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(comboxGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campNum, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(G_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Num_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(campFecha_nac1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(con_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
@@ -311,35 +314,45 @@ public class usuario extends javax.swing.JFrame implements Interface{
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void campApellidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campApellidoActionPerformed
+    private void A_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campApellidoActionPerformed
+    }//GEN-LAST:event_A_usuarioActionPerformed
 
-    private void campNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campNumActionPerformed
+    private void Num_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campNumActionPerformed
+    }//GEN-LAST:event_Num_usuarioActionPerformed
 
-    private void campDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campDniActionPerformed
+    private void camp_dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_camp_dniActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campDniActionPerformed
+    }//GEN-LAST:event_camp_dniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    Usuario us;
+    String dni = camp_dni.getText();
+    String nacimiento= f_nacimiento.getText();
+    String nombre = N_usuario.getText();
+    String apellido = A_usuario.getText();
+    String numero =Num_usuario.getText();
+    String genero = G_usuario.getSelectedItem().toString();
+    String contra =con_usuario.getText();
+           
+    //us = new Usuario(dni, nacimiento, nombre, apellido, numero, genero) {
         
-
+        
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void comboxGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxGeneroActionPerformed
+    
+    private void G_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G_usuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_comboxGeneroActionPerformed
+    }//GEN-LAST:event_G_usuarioActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campApellido;
-    private javax.swing.JTextField campDni;
-    private javax.swing.JFormattedTextField campFecha_nac;
-    private javax.swing.JFormattedTextField campFecha_nac1;
-    private javax.swing.JTextField campNombre;
-    private javax.swing.JTextField campNum;
-    private javax.swing.JComboBox<String> comboxGenero;
+    private javax.swing.JTextField A_usuario;
+    private javax.swing.JComboBox<String> G_usuario;
+    private javax.swing.JTextField N_usuario;
+    private javax.swing.JTextField Num_usuario;
+    private javax.swing.JTextField camp_dni;
+    private javax.swing.JFormattedTextField con_usuario;
+    private javax.swing.JFormattedTextField f_nacimiento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;

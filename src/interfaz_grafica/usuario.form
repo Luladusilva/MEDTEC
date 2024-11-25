@@ -33,8 +33,8 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="51" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="campNombre" min="-2" pref="197" max="-2" attributes="0"/>
-                  <Component id="campDni" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
+                  <Component id="N_usuario" min="-2" pref="197" max="-2" attributes="0"/>
+                  <Component id="camp_dni" alignment="0" min="-2" pref="158" max="-2" attributes="0"/>
                   <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel17" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
@@ -44,12 +44,12 @@
                           <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="campFecha_nac1" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
+                                  <Component id="con_usuario" alignment="0" min="-2" pref="160" max="-2" attributes="0"/>
                                   <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <Group type="103" alignment="1" groupAlignment="0" attributes="0">
                                   <Component id="jLabel9" min="-2" pref="41" max="-2" attributes="0"/>
-                                  <Component id="comboxGenero" min="-2" pref="159" max="-2" attributes="0"/>
+                                  <Component id="G_usuario" min="-2" pref="159" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -57,15 +57,15 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="campApellido" min="-2" pref="199" max="-2" attributes="0"/>
+                  <Component id="A_usuario" min="-2" pref="199" max="-2" attributes="0"/>
                   <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
-                      <Component id="campNum" min="-2" pref="158" max="-2" attributes="0"/>
+                      <Component id="Num_usuario" min="-2" pref="158" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                  <Component id="campFecha_nac" min="-2" pref="160" max="-2" attributes="0"/>
+                  <Component id="f_nacimiento" min="-2" pref="160" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
           </Group>
@@ -97,20 +97,20 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="campDni" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="camp_dni" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="campFecha_nac" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="f_nacimiento" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="campNombre" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
-                  <Component id="campApellido" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="N_usuario" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="A_usuario" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -124,13 +124,13 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="comboxGenero" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
-                  <Component id="campNum" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
+                  <Component id="G_usuario" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
+                  <Component id="Num_usuario" alignment="3" min="-2" pref="30" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="campFecha_nac1" min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="con_usuario" min="-2" pref="30" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="51" max="32767" attributes="0"/>
@@ -273,11 +273,11 @@
         <Property name="text" type="java.lang.String" value="Nombres y Apellidos:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="campNombre">
+    <Component class="javax.swing.JTextField" name="N_usuario">
     </Component>
-    <Component class="javax.swing.JTextField" name="campApellido">
+    <Component class="javax.swing.JTextField" name="A_usuario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campApellidoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="A_usuarioActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
@@ -294,7 +294,7 @@
         <Property name="text" type="java.lang.String" value="Apellido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="comboxGenero">
+    <Component class="javax.swing.JComboBox" name="G_usuario">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="3">
@@ -305,7 +305,7 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboxGeneroActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="G_usuarioActionPerformed"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
@@ -337,21 +337,21 @@
         <Property name="text" type="java.lang.String" value="Fecha de Nacimiento:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="campNum">
+    <Component class="javax.swing.JTextField" name="Num_usuario">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campNumActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Num_usuarioActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="campFecha_nac">
+    <Component class="javax.swing.JFormattedTextField" name="f_nacimiento">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
           <Format subtype="1" type="1"/>
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="campDni">
+    <Component class="javax.swing.JTextField" name="camp_dni">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campDniActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="camp_dniActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel17">
@@ -364,7 +364,7 @@
         <Property name="text" type="java.lang.String" value="Contrase&#xf1;a:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JFormattedTextField" name="campFecha_nac1">
+    <Component class="javax.swing.JFormattedTextField" name="con_usuario">
       <Properties>
         <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
           <Format subtype="1" type="1"/>
