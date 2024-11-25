@@ -10,7 +10,7 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 /**
  *
- * @author HP
+ * @author 
  */
 public class registrar extends javax.swing.JFrame{
     Conexion_db enlace = new Conexion_db();
