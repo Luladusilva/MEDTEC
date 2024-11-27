@@ -8,8 +8,8 @@ package interfaz_class;
  *
  * @author HP
  */
-public interface Interface {
+public interface Interface_mostrarDatos {
     
-    public void mostrar();
+    public void mostrardDatos();
     
 }

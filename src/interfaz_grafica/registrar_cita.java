@@ -12,10 +12,10 @@ import javax.swing.JOptionPane;
  *
  * @author 
  */
-public class registrar extends javax.swing.JFrame{
+public class registrar_cita extends javax.swing.JFrame{
     Conexion_db enlace = new Conexion_db();
     Connection conect = enlace.conexion();
-    public registrar() {
+    public registrar_cita() {
         initComponents();
     }
 
@@ -246,7 +246,7 @@ public class registrar extends javax.swing.JFrame{
     c = new Cita(fecha_cita, hora_cita, especialidad) {
         
         @Override
-        public void registrarCita() {
+        public void registrar_cita() {
             try {
             PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora) VALUES (?,?)");
             guardar_cita.setString(1,fecha_cita);

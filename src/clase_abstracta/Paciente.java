@@ -4,34 +4,26 @@
  */
 package clase_abstracta;
 
-/**
- *
- * @author HP
- */
-public abstract class Paciente{
+
+import interfaz_class.interface_registrar;
+
+public abstract class Paciente implements interface_registrar{
     private String nombre;
     private String apellido;
-    private String email;
     private int celular;
     private int dni;
     private String fecha_nac;
-    private String especialidad;
-    private String fecha_cita;
     private String genero;
-
-    public Paciente(String nombre, String apellido, String email, int celular,int dni,String fecha_nac,String fecha_cita,String especialidad,String genero) {
+    
+    
+    public Paciente(int dni, String nombre, String apellido, String genero, int celular, String fecha_nac) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
         this.celular = celular;
         this.dni = dni;
         this.fecha_nac = fecha_nac;
-        this.fecha_cita = fecha_cita;
-        this.especialidad = especialidad;
         this.genero = genero;
     }
-    
-    
 
     public String getNombre() {
         return nombre;
@@ -47,14 +39,6 @@ public abstract class Paciente{
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 
     public int getCelular() {
@@ -81,22 +65,6 @@ public abstract class Paciente{
         this.fecha_nac = fecha_nac;
     }
 
-    public String getEspecialidad() {
-        return especialidad;
-    }
-
-    public void setEspecialidad(String especialidad) {
-        this.especialidad = especialidad;
-    }
-
-    public String getFecha_cita() {
-        return fecha_cita;
-    }
-
-    public void setFecha_cita(String fecha_cita) {
-        this.fecha_cita = fecha_cita;
-    }
-
     public String getGenero() {
         return genero;
     }
@@ -104,8 +72,10 @@ public abstract class Paciente{
     public void setGenero(String genero) {
         this.genero = genero;
     }
-
-    public abstract void registrar_paciente();
-
-
+    
+    
+    @Override
+    public void registrar_paciente(){
+    }
+    
 }

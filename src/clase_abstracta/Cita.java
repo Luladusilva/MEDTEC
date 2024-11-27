@@ -4,11 +4,9 @@
  */
 package clase_abstracta;
 
-/**
- *
- * @author emili
- */
-public abstract class Cita {
+import interfaz_class.interface_cita;
+
+public abstract class Cita implements interface_cita{
     private String fecha;
     private String hora;
     private String especialidad;
@@ -48,5 +46,7 @@ public abstract class Cita {
         this.especialidad = especialidad;
     }
 
-    public abstract void registrarCita();
+    @Override
+    public void registrar_cita() {
+    }
 }

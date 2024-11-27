@@ -4,11 +4,9 @@
  */
 package clase_abstracta;
 
-/**
- *
- * @author JORDAN
- */
-public abstract class Login {
+import interfaz_class.interface_login;
+
+public abstract class Login implements interface_login{
 
     private String dni;
 
@@ -24,7 +22,7 @@ public abstract class Login {
         this.dni = dni;
     }
     
-    
-
-    public abstract void autenticar();
+    @Override
+    public void validacion(){
+    }
 }
