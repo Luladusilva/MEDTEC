@@ -292,15 +292,21 @@ public class usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        historial ventanaHistorial = new historial();
+        ventanaHistorial.setVisible(true);
+        this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        this.setVisible(false);       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        usuario ventanaUsuario = new usuario();
+        ventanaUsuario.setVisible(true);
+        this.setVisible(false); 
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void A_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_A_usuarioActionPerformed

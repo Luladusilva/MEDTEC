@@ -37,6 +37,7 @@ public class Login extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
+        botonPrueba = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,17 +113,17 @@ public class Login extends javax.swing.JFrame {
                         .addComponent(jLabel4)))
                 .addContainerGap(60, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jButton2)
+                        .addGap(109, 109, 109))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
                         .addGap(119, 119, 119))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
-                        .addGap(90, 90, 90))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addComponent(jButton2)
-                        .addGap(109, 109, 109))))
+                        .addGap(90, 90, 90))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,6 +148,14 @@ public class Login extends javax.swing.JFrame {
         );
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 300, 320));
+
+        botonPrueba.setText("boton prueba");
+        botonPrueba.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botonPruebaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(botonPrueba, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 390, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -205,7 +214,14 @@ public class Login extends javax.swing.JFrame {
       h.buscar();      
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void botonPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPruebaActionPerformed
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        this.setVisible(false);   
+    }//GEN-LAST:event_botonPruebaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton botonPrueba;
     private javax.swing.JTextField campDNI;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

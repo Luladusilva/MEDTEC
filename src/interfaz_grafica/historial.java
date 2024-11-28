@@ -273,15 +273,21 @@ public class historial extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
-        // TODO add your handling code here:
+        historial ventanaHistorial = new historial();
+        ventanaHistorial.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCitaActionPerformed
-        // TODO add your handling code here:
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_jBCitaActionPerformed
 
     private void jBUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBUsuarioActionPerformed
-        // TODO add your handling code here:
+        usuario ventanaUsuario = new usuario();
+        ventanaUsuario.setVisible(true);
+        this.setVisible(false);           
     }//GEN-LAST:event_jBUsuarioActionPerformed
 
     private void jCBEspecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEspecActionPerformed
