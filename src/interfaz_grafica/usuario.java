@@ -6,10 +6,7 @@ package interfaz_grafica;
 
 
 
-/**
- *
- * @author HP
- */
+
 public class usuario extends javax.swing.JFrame {
     
     private String dni_paciente;
@@ -285,7 +282,8 @@ public class usuario extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(lblCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -294,18 +292,21 @@ public class usuario extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         historial ventanaHistorial = new historial();
         ventanaHistorial.setVisible(true);
+        ventanaHistorial.setLocationRelativeTo(null);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         menu_principal ventanaCita = new menu_principal();
         ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
         this.setVisible(false);       
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         usuario ventanaUsuario = new usuario();
         ventanaUsuario.setVisible(true);
+        ventanaUsuario.setLocationRelativeTo(null);
         this.setVisible(false); 
     }//GEN-LAST:event_jButton5ActionPerformed
 

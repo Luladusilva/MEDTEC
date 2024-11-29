@@ -21,6 +21,7 @@ public class ProyectoPOO {
         log.setVisible(true);
         log.setLocationRelativeTo(null);
         
+ 
         
     }
     

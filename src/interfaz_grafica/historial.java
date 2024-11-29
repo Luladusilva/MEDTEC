@@ -282,18 +282,21 @@ public class historial extends javax.swing.JFrame {
     private void jBHistorialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBHistorialActionPerformed
         historial ventanaHistorial = new historial();
         ventanaHistorial.setVisible(true);
+        ventanaHistorial.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jBHistorialActionPerformed
 
     private void jBCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCitaActionPerformed
         menu_principal ventanaCita = new menu_principal();
         ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_jBCitaActionPerformed
 
     private void jBUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBUsuarioActionPerformed
         usuario ventanaUsuario = new usuario();
         ventanaUsuario.setVisible(true);
+        ventanaUsuario.setLocationRelativeTo(null);
         this.setVisible(false);           
     }//GEN-LAST:event_jBUsuarioActionPerformed
 

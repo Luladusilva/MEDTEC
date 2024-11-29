@@ -198,12 +198,17 @@ public class registrar_cita extends javax.swing.JFrame{
         campFecha_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
         jPanel3.add(campFecha_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, 160, 30));
 
-        campHora_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        campHora_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("h:mm "))));
+        campHora_cita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campHora_citaActionPerformed(evt);
+            }
+        });
         jPanel3.add(campHora_cita, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 160, 30));
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel18.setText("DD/MM/YY");
+        jLabel18.setText("HH:MM");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -252,7 +257,7 @@ public class registrar_cita extends javax.swing.JFrame{
             guardar_cita.setString(1,fecha_cita);
             guardar_cita.setString(2,hora_cita);
             guardar_cita.executeUpdate();
-            PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(Nom_Espec) VALUES(?)");
+            PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(Nombre_Espec) VALUES(?)");
             guardar_esp.setString(1, especialidad);
             guardar_esp.executeUpdate();
             JOptionPane.showMessageDialog(null, " Cita agendada");
@@ -263,7 +268,7 @@ public class registrar_cita extends javax.swing.JFrame{
             }
         }
     };
-     
+    c.registrar_cita();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void campNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campNumActionPerformed
@@ -273,6 +278,10 @@ public class registrar_cita extends javax.swing.JFrame{
     private void comboxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxEspecialidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_comboxEspecialidadActionPerformed
+
+    private void campHora_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campHora_citaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campHora_citaActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campApellido;

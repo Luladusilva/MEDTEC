@@ -217,6 +217,7 @@ public class Login extends javax.swing.JFrame {
     private void botonPruebaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botonPruebaActionPerformed
         menu_principal ventanaCita = new menu_principal();
         ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
         this.setVisible(false);   
     }//GEN-LAST:event_botonPruebaActionPerformed
 
