@@ -32,13 +32,20 @@ public class historial extends javax.swing.JFrame {
         
         try {
             Statement leer = conect.createStatement();
-            ResultSet resultado = leer.executeQuery("SELECT * FROM Paciente where");
+            ResultSet resultado = leer.executeQuery( "SELECT " +
+                        "PACIENTE.Nombre AS NombrePaciente, " +
+                        "CITA_MED.hora AS HoraCita, " +
+                        "ESPECIALIDAD.Nombre_Espec AS EspecialidadCita, " +
+                        "CITA.estado AS EstadoCita, " +
+                        "FROM Paciente " +
+                        "JOIN CITA_MED ON PACIENTE.id_paciente = Cita.id_paciente " +
+                        "JOIN ESPECIALIDAD ON CITA_MED.ID.Especialidad = ESPECIALIDAD.ID_Especialidad");
             
             while(resultado.next()){
-                datos[0] = resultado.getString(1);
-                datos[1] = resultado.getString(2);
-                datos[2] = resultado.getString(3);
-                datos[3] = resultado.getString(4);
+                datos[0] = resultado.getString("NombrePaciente");
+                datos[1] = resultado.getString("HoraCita");
+                datos[2] = resultado.getString("EspecialidadCita");
+                datos[3] = resultado.getString("EstadoCita");
                 thistorial.addRow(datos);
             }
             tableHistorial.setModel(thistorial);
