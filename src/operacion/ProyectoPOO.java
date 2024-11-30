@@ -6,21 +6,20 @@ package operacion;
 
 import interfaz_grafica.*;
 
-/**
- *
- * @author HP
- */
+
 public class ProyectoPOO {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        Conexion_db conex=new Conexion_db();
         
-        Login log = new Login();
-        log.setVisible(true);
-        log.setLocationRelativeTo(null);
         
+        registrar_usuario regis = new registrar_usuario();
+        
+        regis.setVisible(true);
+        regis.setLocationRelativeTo(null);
  
         
     }

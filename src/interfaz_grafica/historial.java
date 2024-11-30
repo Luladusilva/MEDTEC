@@ -71,11 +71,9 @@ public class historial extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jCBEspec = new javax.swing.JComboBox<>();
-        jCBEstado = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         jTFiltFecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -168,13 +166,13 @@ public class historial extends javax.swing.JFrame {
 
         tableHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "FECHA", "HORA", "ESPECIALIDAD", "ESTADO"
+                "FECHA", "HORA", "ESPECIALIDAD"
             }
         ));
         jScrollPane2.setViewportView(tableHistorial);
@@ -191,15 +189,13 @@ public class historial extends javax.swing.JFrame {
             }
         });
 
-        jCBEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "VIGENTE", "REALIZADO" }));
-        jCBEstado.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBEstadoActionPerformed(evt);
-            }
-        });
-
         jLabel3.setText("Fecha:");
 
+        jTFiltFecha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTFiltFechaActionPerformed(evt);
+            }
+        });
         jTFiltFecha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTFiltFechaKeyTyped(evt);
@@ -207,8 +203,6 @@ public class historial extends javax.swing.JFrame {
         });
 
         jLabel4.setText("Especialidad:");
-
-        jLabel5.setText("Estado");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -225,11 +219,7 @@ public class historial extends javax.swing.JFrame {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jCBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addContainerGap(159, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,12 +231,10 @@ public class historial extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
+                    .addComponent(jLabel4))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFiltFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
@@ -340,46 +328,6 @@ public class historial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jCBEspecActionPerformed
 
-    private void jCBEstadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEstadoActionPerformed
-        // Obtener la especialidad seleccionada del ComboBox
-        String estado = jCBEstado.getSelectedItem().toString();
-        
-        // Configurar el modelo de la tabla
-        DefaultTableModel thistorial = new DefaultTableModel();
-        thistorial.addColumn("FECHA");
-        thistorial.addColumn("HORA");
-        thistorial.addColumn("ESPECIALIDAD");
-        thistorial.addColumn("ESTADO");
-        tableHistorial.setModel(thistorial);
-        
-        // Arreglo para almacenar temporalmente los datos de las filas
-        String []datos = new String[4];
-        
-        try {
-            String query = "SELECT FECHA, HORA, ESPECIALIDAD, ESTADO FROM Paciente WHERE ESTADO = ?";
-            PreparedStatement ps = conect.prepareStatement(query);
-            ps.setString(1, estado);
-            
-            // Ejecutar la consulta
-            ResultSet resultado = ps.executeQuery();
-            
-            while(resultado.next()){
-                datos[0] = resultado.getString(1);
-                datos[1] = resultado.getString(2);
-                datos[2] = resultado.getString(3);
-                datos[3] = resultado.getString(4);
-                thistorial.addRow(datos);
-            }
-            
-            // Actualizar la tabla con el modelo
-            tableHistorial.setModel(thistorial);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
-        }
-                           
-    }//GEN-LAST:event_jCBEstadoActionPerformed
-
     private void jTFiltFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFiltFechaKeyTyped
     // Verifica que trs esté inicializado
     if (trs == null) {
@@ -392,19 +340,21 @@ public class historial extends javax.swing.JFrame {
     trs.setRowFilter(RowFilter.regexFilter("(?i)" + filtro, 1)); // Filtro para la columna de FECHA (columna 1) 
     }//GEN-LAST:event_jTFiltFechaKeyTyped
 
+    private void jTFiltFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFiltFechaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTFiltFechaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBCita;
     private javax.swing.JButton jBHistorial;
     private javax.swing.JButton jBUsuario;
     private javax.swing.JComboBox<String> jCBEspec;
-    private javax.swing.JComboBox<String> jCBEstado;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
