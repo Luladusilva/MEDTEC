@@ -62,6 +62,7 @@ public class registrar_cita extends javax.swing.JFrame{
         campFecha_cita = new javax.swing.JFormattedTextField();
         campHora_cita = new javax.swing.JFormattedTextField();
         jLabel18 = new javax.swing.JLabel();
+        retroBoton = new javax.swing.JButton();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -211,6 +212,16 @@ public class registrar_cita extends javax.swing.JFrame{
         jLabel18.setText("HH:MM");
         jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, -1, -1));
 
+        retroBoton.setBackground(new java.awt.Color(51, 0, 204));
+        retroBoton.setForeground(new java.awt.Color(255, 255, 255));
+        retroBoton.setText("<");
+        retroBoton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                retroBotonActionPerformed(evt);
+            }
+        });
+        jPanel3.add(retroBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -269,6 +280,11 @@ public class registrar_cita extends javax.swing.JFrame{
         }
     };
     c.registrar_cita();
+    
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void campNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campNumActionPerformed
@@ -282,6 +298,13 @@ public class registrar_cita extends javax.swing.JFrame{
     private void campHora_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campHora_citaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campHora_citaActionPerformed
+
+    private void retroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retroBotonActionPerformed
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_retroBotonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campApellido;
@@ -318,5 +341,6 @@ public class registrar_cita extends javax.swing.JFrame{
     private javax.swing.JScrollBar jScrollBar1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JButton retroBoton;
     // End of variables declaration//GEN-END:variables
 }

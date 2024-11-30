@@ -375,7 +375,11 @@ public class registrar_usuario extends javax.swing.JFrame {
         user.setGener_paciente(genero);
         user.setCelular_paciente(Integer.toString(celular));
         user.setFecha_nac(fecha_nac);
-
+        
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
+        this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void Num_usuario1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Num_usuario1ActionPerformed

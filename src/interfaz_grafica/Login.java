@@ -178,7 +178,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_campDNIActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        registrar_usuario ventanaRegisUsuario = new registrar_usuario();
+        ventanaRegisUsuario.setVisible(true);
+        ventanaRegisUsuario.setLocationRelativeTo(null);
+        this.setVisible(false);        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
