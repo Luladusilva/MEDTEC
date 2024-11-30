@@ -16,10 +16,9 @@ public class ProyectoPOO {
         Conexion_db conex=new Conexion_db();
         
         
-        registrar_usuario regis = new registrar_usuario();
-        
-        regis.setVisible(true);
-        regis.setLocationRelativeTo(null);
+        Login log = new Login();
+        log.setVisible(true);
+        log.setLocationRelativeTo(null);
  
         
     }
