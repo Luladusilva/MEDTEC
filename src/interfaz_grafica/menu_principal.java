@@ -1,6 +1,7 @@
 
 package interfaz_grafica;
-
+import java.sql.*;
+import operacion.Conexion_db;
 /**
  *
  * @author HP
@@ -10,10 +11,115 @@ public class menu_principal extends javax.swing.JFrame {
     /**
      * Creates new form menu_principal
      */
+    
+        // Instancia de la clase Conexion_db
+
+    private Conexion_db enlace = new Conexion_db();
+    
     public menu_principal() {
         initComponents();
+        cargarDatosCitas();
+    }
+    
+    private int contarCitas() {
+        int total = 0;
+        try (Connection conexion = enlace.conexion()) {
+            // Consulta para contar el total de citas
+            String sql = "SELECT COUNT(*) AS total FROM CITA_MED";
+            PreparedStatement stmt = conexion.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                total = rs.getInt("total");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return total;
     }
 
+
+    // Método para obtener la próxima cita
+private String obtenerProximaCita() {
+    String proximaCitaFecha = "No disponible"; // Valor predeterminado para la fecha
+    Connection conect = null; // Declaración de la conexión
+    try {
+        conect = enlace.conexion(); // Establecer conexión
+        if (conect != null) {
+            // La consulta ahora solo selecciona la fecha de la cita
+            String sql = "SELECT c.fecha FROM CITA_MED c " +
+                         "ORDER BY c.fecha ASC LIMIT 1"; // Consulta para obtener la próxima cita
+            PreparedStatement stmt = conect.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                // Obtenemos solo la fecha de la próxima cita
+                proximaCitaFecha = rs.getString("fecha") != null ? rs.getString("fecha") : "No disponible";
+            }
+        } else {
+            System.err.println("No se pudo establecer la conexión a la base de datos.");
+        }
+    } catch (Exception e) {
+        System.err.println("Error al obtener la próxima cita: " + e.getMessage());
+        e.printStackTrace();
+    } finally {
+        try {
+            if (conect != null) {
+                conect.close(); // Cerrar la conexión
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+    return proximaCitaFecha;
+}
+
+private String obtenerEspecialidadProximaCita() {
+    String especialidad = "No disponible"; // Valor predeterminado
+    Connection conect = null; // Declaración de la conexión
+    try {
+        conect = enlace.conexion(); // Establecer conexión
+        if (conect != null) {
+            // Consulta para obtener el nombre de la especialidad de la próxima cita
+            String sql = "SELECT e.Nombre_Espec FROM CITA_MED c " +
+                         "JOIN ESPECIALIDAD e ON c.id_especialidad = e.ID_Especialidad " +
+                         "ORDER BY c.fecha ASC LIMIT 1"; // La consulta obtiene la especialidad
+            PreparedStatement stmt = conect.prepareStatement(sql);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                // Obtenemos el nombre de la especialidad de la próxima cita
+                especialidad = rs.getString("Nombre_Espec") != null ? rs.getString("Nombre_Espec") : "No disponible";
+            }
+        } else {
+            System.err.println("No se pudo establecer la conexión a la base de datos.");
+        }
+    } catch (Exception e) {
+        System.err.println("Error al obtener la especialidad de la próxima cita: " + e.getMessage());
+        e.printStackTrace();
+    } finally {
+        try {
+            if (conect != null) {
+                conect.close(); // Cerrar la conexión
+            }
+        } catch (Exception e) {
+            System.err.println("Error al cerrar la conexión: " + e.getMessage());
+        }
+    }
+    return especialidad;
+}
+
+    
+    private void cargarDatosCitas() {
+        // Obtener el número de citas
+        int totalCitas = contarCitas();
+        labelCitas.setText("" + totalCitas);
+        System.out.println(totalCitas);
+
+        // Obtener la próxima cita
+        String proximaCita = obtenerProximaCita(); // Ahora solo se obtiene la fecha
+        proximoLabel.setText("" + proximaCita); // Mostrar solo la fecha
+        
+        String especialidad = obtenerEspecialidadProximaCita(); // Solo la especialidad
+        especialidadLabel.setText("Especialidad: " + especialidad); // Mostrar la especialidad
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,8 +141,8 @@ public class menu_principal extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
+        proximoLabel = new javax.swing.JLabel();
+        especialidadLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -166,11 +272,11 @@ public class menu_principal extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel8.setText("PRÓXIMO:");
 
-        jLabel9.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
-        jLabel9.setText("Pediatría");
+        proximoLabel.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        proximoLabel.setText("Pediatría");
 
-        jLabel10.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
-        jLabel10.setText("Martes 18/11, Hora 17:00 ");
+        especialidadLabel.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        especialidadLabel.setText("Martes 18/11, Hora 17:00 ");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -179,8 +285,8 @@ public class menu_principal extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9)
+                    .addComponent(especialidadLabel)
+                    .addComponent(proximoLabel)
                     .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
@@ -190,9 +296,9 @@ public class menu_principal extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
+                .addComponent(proximoLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(especialidadLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -304,22 +410,22 @@ public class menu_principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel especialidadLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel labelCitas;
+    private javax.swing.JLabel proximoLabel;
     // End of variables declaration//GEN-END:variables
 }
