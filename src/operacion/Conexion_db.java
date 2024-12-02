@@ -7,27 +7,27 @@ package operacion;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 public class Conexion_db{
    
-    String root;
-    String cod;
-    Scanner s=new Scanner(System.in);
+    /*String root;*/
+    /*String cod;*/
+    //Scanner s=new Scanner(System.in);
     public Connection conexion(){
     //Tipo de dato conncetion que tiene como valor null
     
     Connection enlazar = null;
     
-    System.out.println("Ruta: ");
+    /*System.out.println("Ruta: ");
     root=s.next();
     System.out.println("Codigo: ");
-    cod = s.next();
+    cod = s.next();*/
     //Exceocion para que si o si se ejecute el codigo
     try {
         
         //Funcion para enlazar a nuestra base de datos
-        enlazar = DriverManager.getConnection("jdbc:mysql://localhost/Hospital",root,cod);
+        enlazar = DriverManager.getConnection("jdbc:mysql://localhost/Hospital");
     } catch (Exception e) {
         //Mensaje si no se realizo bien la operacion
         JOptionPane.showMessageDialog(null, e + " No fue posible establecer la conexión");

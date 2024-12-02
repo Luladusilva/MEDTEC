@@ -164,7 +164,7 @@ public class registrar_cita extends javax.swing.JFrame{
         jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 520, -1));
 
-        comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Masculino", "Femenino" }));
+        comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia", "Pediatria", "Dermatología", "Gastroenterología", " " }));
         comboxEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboxEspecialidadActionPerformed(evt);

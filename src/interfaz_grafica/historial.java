@@ -5,49 +5,40 @@ import java.sql.*;
 import operacion.Conexion_db;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
-import javax.swing.table.TableRowSorter;
-import javax.swing.RowFilter;
 
 
 public class historial extends javax.swing.JFrame {
 
     Conexion_db enlace = new Conexion_db();
     Connection conect = enlace.conexion();
-    private TableRowSorter<DefaultTableModel> trs;
     
     public historial() {
         initComponents();
         mostrarDatos();
     }
     
-     public void mostrarDatos(){
+    public void mostrarDatos(){
         DefaultTableModel thistorial = new DefaultTableModel();
         thistorial.addColumn("FECHA");
         thistorial.addColumn("HORA");
         thistorial.addColumn("ESPECIALIDAD");
-        thistorial.addColumn("ESTADO");
+        thistorial.addColumn("MÉDICO");
         tableHistorial.setModel(thistorial);
         
-        String []datos = new String[4];
-        
+        String []datos = new String[3];
         try {
             Statement leer = conect.createStatement();
-            ResultSet resultado = leer.executeQuery( "SELECT " +
-                        "PACIENTE.Nombre AS NombrePaciente, " +
-                        "CITA_MED.hora AS HoraCita, " +
-                        "ESPECIALIDAD.Nombre_Espec AS EspecialidadCita, " +
-                        "CITA.estado AS EstadoCita, " +
-                        "FROM Paciente " +
-                        "JOIN CITA_MED ON PACIENTE.id_paciente = Cita.id_paciente " +
-                        "JOIN ESPECIALIDAD ON CITA_MED.ID.Especialidad = ESPECIALIDAD.ID_Especialidad");
-            
+            Statement leer_espc = conect.createStatement();
+            ResultSet resultado = leer.executeQuery("SELECT hora,fecha FROM CITA_MED");
+            ResultSet resultado_espc = leer_espc.executeQuery("SELECT Nombre_Espec FROM Especialidad");
             while(resultado.next()){
-                datos[0] = resultado.getString("NombrePaciente");
-                datos[1] = resultado.getString("HoraCita");
-                datos[2] = resultado.getString("EspecialidadCita");
-                datos[3] = resultado.getString("EstadoCita");
-                thistorial.addRow(datos);
+                datos[0] = resultado.getString(1);
+                datos[1] = resultado.getString(2);
             }
+            while(resultado_espc.next()){
+                datos[2] = resultado_espc.getString(1);
+            }
+            thistorial.addRow(datos);
             tableHistorial.setModel(thistorial);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + " Error en la consulta");
@@ -166,13 +157,13 @@ public class historial extends javax.swing.JFrame {
 
         tableHistorial.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "FECHA", "HORA", "ESPECIALIDAD"
+
             }
         ));
         jScrollPane2.setViewportView(tableHistorial);
@@ -182,7 +173,7 @@ public class historial extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel2.setText("FILTROS:");
 
-        jCBEspec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "---", "Cardiologia", "Pediatria", "Dermatología", "Gastroenterología", " " }));
+        jCBEspec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia", "Pediatria", "Dermatología", "Gastroenterología", " " }));
         jCBEspec.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCBEspecActionPerformed(evt);
@@ -211,28 +202,28 @@ public class historial extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTFiltFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
+                .addGap(123, 123, 123)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addContainerGap(159, Short.MAX_VALUE))
+                .addGap(39, 39, 39))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(jLabel2)
+                .addGap(12, 12, 12)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addContainerGap(12, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTFiltFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,8 +250,8 @@ public class historial extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(31, 31, 31)
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(43, 43, 43)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19))
         );
 
@@ -289,55 +280,11 @@ public class historial extends javax.swing.JFrame {
     }//GEN-LAST:event_jBUsuarioActionPerformed
 
     private void jCBEspecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEspecActionPerformed
-        // Obtener la especialidad seleccionada del ComboBox
-        String especialidad = jCBEspec.getSelectedItem().toString();
-        
-        // Configurar el modelo de la tabla
-        DefaultTableModel thistorial = new DefaultTableModel();
-        thistorial.addColumn("FECHA");
-        thistorial.addColumn("HORA");
-        thistorial.addColumn("ESPECIALIDAD");
-        thistorial.addColumn("ESTADO");
-        tableHistorial.setModel(thistorial);
-        
-        // Arreglo para almacenar temporalmente los datos de las filas
-        String []datos = new String[4];
-        
-        try {
-            String query = "SELECT FECHA, HORA, ESPECIALIDAD, ESTADO FROM Paciente WHERE ESPECIALIDAD = ?";
-            PreparedStatement ps = conect.prepareStatement(query);
-            ps.setString(1, especialidad);
-            
-            // Ejecutar la consulta
-            ResultSet resultado = ps.executeQuery();
-            
-            while(resultado.next()){
-                datos[0] = resultado.getString(1);
-                datos[1] = resultado.getString(2);
-                datos[2] = resultado.getString(3);
-                datos[3] = resultado.getString(4);
-                thistorial.addRow(datos);
-            }
-            
-            // Actualizar la tabla con el modelo
-            tableHistorial.setModel(thistorial);
-            
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
-        }
         
     }//GEN-LAST:event_jCBEspecActionPerformed
 
     private void jTFiltFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFiltFechaKeyTyped
-    // Verifica que trs esté inicializado
-    if (trs == null) {
-        trs = new TableRowSorter<>((DefaultTableModel) tableHistorial.getModel());
-        tableHistorial.setRowSorter(trs);
-    }
-
-    // Aplica el filtro basado en el texto del campo
-    String filtro = jTFiltFecha.getText();
-    trs.setRowFilter(RowFilter.regexFilter("(?i)" + filtro, 1)); // Filtro para la columna de FECHA (columna 1) 
+     
     }//GEN-LAST:event_jTFiltFechaKeyTyped
 
     private void jTFiltFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFiltFechaActionPerformed

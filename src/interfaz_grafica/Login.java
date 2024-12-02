@@ -194,13 +194,12 @@ public class Login extends javax.swing.JFrame {
               if(valor != 0){
                 String consulta = "SELECT * FROM PACIENTE WHERE Dni_paciente = '"+valor+"'"; 
                 try {
-                    
                     Statement leer = conect.createStatement();
                     ResultSet resultado = leer.executeQuery(consulta);
                         
                     if (resultado.next()) {
                     JOptionPane.showMessageDialog(null, "DNI válido. Bienvenido, " +
-                        resultado.getString("nombre_paciente") + "!");
+                        resultado.getString("Nombre") + "!");
                     }else{
                         JOptionPane.showMessageDialog(null, "No esta registrado, relize un nuevo registro");
                     }
