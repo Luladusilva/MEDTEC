@@ -169,6 +169,10 @@ public class Login extends javax.swing.JFrame {
                     if (resultado.next()) {
                     JOptionPane.showMessageDialog(null, "DNI válido. Bienvenido, " +
                         resultado.getString("Nombre") + "!");
+                    menu_principal ventanaCita = new menu_principal();
+                    ventanaCita.setVisible(true);
+                    ventanaCita.setLocationRelativeTo(null);
+                    Login.this.setVisible(false);      
                     }else{
                         JOptionPane.showMessageDialog(null, "No esta registrado, relize un nuevo registro");
                     }
@@ -182,7 +186,8 @@ public class Login extends javax.swing.JFrame {
               }
           }
       };
-      h.buscar();      
+      h.buscar();   
+      
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
