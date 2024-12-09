@@ -4,51 +4,42 @@
  */
 package interfaz_grafica;
 
-
-
+import java.sql.*;
+import operacion.Conexion_db;
+import javax.swing.JOptionPane;
 
 public class usuario extends javax.swing.JFrame {
     
-    private String dni_paciente;
-    private String nombre_paciente;
-    private String apellido_paciente;
-    private String gener_paciente;
-    private String celular_paciente;
-    private String fecha_nac;
+    Conexion_db enlace = new Conexion_db();
+    Connection conect = enlace.conexion();
+    
+    private String consulta = "SELECT DNI_paciente,Nombre,Apellido,Genero,Celular,Fecha_nacimiento FROM PACIENTE";
+    
     
     public usuario() {
         initComponents();
+        ejecutar();
     }
 
-    public void setDni_paciente(String dni_paciente){
-        this.dni_paciente = dni_paciente;
-        lblDni.setText(dni_paciente);
+    public void ejecutar(){
+        try {
+            Statement leer = conect.createStatement();
+           
+            ResultSet resultado = leer.executeQuery(consulta);
+            while(resultado.next()){
+                lblDni.setText(resultado.getString(1));
+                lblNombre.setText(resultado.getString(2));
+                lblApellido.setText(resultado.getString(3));
+                lblGenero.setText(resultado.getString(4));
+                lblCelular.setText(resultado.getString(5));
+                lblFecha_nac.setText(resultado.getString(6));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
+        }
     }
 
-    public void setNombre_paciente(String nombre_paciente) {
-        this.nombre_paciente = nombre_paciente;
-        lblNombre.setText(nombre_paciente);
-    }
-
-    public void setApellido_paciente(String apellido_paciente) {
-        this.apellido_paciente = apellido_paciente;
-        lblApellido.setText(apellido_paciente);
-    }
-
-    public void setGener_paciente(String gener_paciente) {
-        this.gener_paciente = gener_paciente;
-        lblGenero.setText(gener_paciente);
-    }
-
-    public void setCelular_paciente(String celular_paciente) {
-        this.celular_paciente = celular_paciente;
-        lblCelular.setText(celular_paciente);
-    }
-
-    public void setFecha_nac(String fecha_nac) {
-        this.fecha_nac = fecha_nac;
-        lblFecha_nac.setText(fecha_nac);
-    }
+    
     
 
     

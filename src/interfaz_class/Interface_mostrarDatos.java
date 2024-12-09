@@ -10,6 +10,6 @@ package interfaz_class;
  */
 public interface Interface_mostrarDatos {
     
-    public void mostrardDatos();
+    public void mostrarDatos();
     
 }

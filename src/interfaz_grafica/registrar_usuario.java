@@ -368,13 +368,7 @@ public class registrar_usuario extends javax.swing.JFrame {
             
         };
         p.registrar_paciente();
-        usuario user = new usuario();
-        user.setDni_paciente(Integer.toString(dni));
-        user.setNombre_paciente(nombre);
-        user.setApellido_paciente(apellido);
-        user.setGener_paciente(genero);
-        user.setCelular_paciente(Integer.toString(celular));
-        user.setFecha_nac(fecha_nac);
+        
         
         menu_principal ventanaCita = new menu_principal();
         ventanaCita.setVisible(true);

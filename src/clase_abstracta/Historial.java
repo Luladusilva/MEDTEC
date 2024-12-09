@@ -5,8 +5,9 @@
 package clase_abstracta;
 
 import interfaz_class.interface_buscarDatos;
+import interfaz_class.Interface_mostrarDatos;
 
-public abstract class Historial implements interface_buscarDatos{
+public abstract class Historial implements interface_buscarDatos, Interface_mostrarDatos{
     
     private int DNI;
     
@@ -20,6 +21,10 @@ public abstract class Historial implements interface_buscarDatos{
 
     public void setDNI(int DNI) {
         this.DNI = DNI;
+    }
+    
+    @Override
+    public void mostrarDatos(){
     }
     
     @Override
