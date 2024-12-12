@@ -6,7 +6,7 @@ package clase_abstracta;
 
 import interfaz_class.Interface_mostrarDatos;
 
-public abstract class Perfil implements Interface_mostrarDatos{
+public abstract class Perfil_abstrac implements Interface_mostrarDatos{
     
     private String dni;
     private String nombre;

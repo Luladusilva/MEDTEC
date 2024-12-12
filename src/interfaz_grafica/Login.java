@@ -6,7 +6,7 @@ package interfaz_grafica;
 
 import javax.swing.JOptionPane;
 import java.sql.*;
-import clase_abstracta.Historial;
+import clase_abstracta.Login_abstrac;
 import operacion.Conexion_db;
 
 public class Login extends javax.swing.JFrame {
@@ -154,12 +154,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-      Historial h;
+      Login_abstrac l;
       int valor = Integer.parseInt(campDNI.getText());
-      h=new Historial(valor) {
+      l=new Login_abstrac(valor) {
           @Override
-          public void buscar(){
+          public void validacion(int valor){
               if(valor != 0){
                 String consulta = "SELECT * FROM PACIENTE WHERE Dni_paciente = '"+valor+"'"; 
                 try {
@@ -168,7 +167,7 @@ public class Login extends javax.swing.JFrame {
                         
                     if (resultado.next()) {
                     JOptionPane.showMessageDialog(null, "DNI válido. Bienvenido, " +
-                        resultado.getString("Nombre") + "!");
+                    resultado.getString("Nombre") + "!");
                     menu_principal ventanaCita = new menu_principal();
                     ventanaCita.setVisible(true);
                     ventanaCita.setLocationRelativeTo(null);
@@ -176,7 +175,6 @@ public class Login extends javax.swing.JFrame {
                     }else{
                         JOptionPane.showMessageDialog(null, "No esta registrado, relize un nuevo registro");
                     }
-                    
                 } catch (Exception e) {
                     JOptionPane.showMessageDialog(null, e + " Error en la consulta");
                 }
@@ -186,7 +184,7 @@ public class Login extends javax.swing.JFrame {
               }
           }
       };
-      h.buscar();   
+      l.validacion(valor);   
       
     }//GEN-LAST:event_jButton2ActionPerformed
 

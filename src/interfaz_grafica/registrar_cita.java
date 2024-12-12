@@ -5,7 +5,7 @@
 package interfaz_grafica;
 
 import operacion.Conexion_db;
-import clase_abstracta.Cita;
+import clase_abstracta.Cita_abstrac;
 import java.sql.*;
 import javax.swing.JOptionPane;
 /**
@@ -64,6 +64,7 @@ public class registrar_cita extends javax.swing.JFrame{
         jPanel4 = new javax.swing.JPanel();
         retroBoton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        campCod_espec = new javax.swing.JTextField();
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -159,7 +160,7 @@ public class registrar_cita extends javax.swing.JFrame{
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia", "Pediatria", "Dermatología", "Gastroenterología", " " }));
+        comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia (123)", "Pediatria (456)", "Dermatologían(789)", "Gastroenterología (345)", " " }));
         comboxEspecialidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 comboxEspecialidadActionPerformed(evt);
@@ -240,32 +241,37 @@ public class registrar_cita extends javax.swing.JFrame{
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(40, 40, 40)
-                .addComponent(jLabel7)
-                .addGap(170, 170, 170)
-                .addComponent(jLabel16))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel18)
+                    .addComponent(campCod_espec, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(campFecha_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(campHora_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel15)
-                .addGap(182, 182, 182)
-                .addComponent(jLabel18))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel9))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(190, 190, 190)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel7)
+                        .addGap(170, 170, 170)
+                        .addComponent(jLabel16))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(campFecha_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)
+                        .addComponent(campHora_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel9))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(190, 190, 190)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,9 +292,15 @@ public class registrar_cita extends javax.swing.JFrame{
                     .addComponent(jLabel18))
                 .addGap(36, 36, 36)
                 .addComponent(jLabel9)
-                .addGap(14, 14, 14)
-                .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(48, 48, 48))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(campCod_espec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56)))
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -311,22 +323,25 @@ public class registrar_cita extends javax.swing.JFrame{
     }//GEN-LAST:event_campDniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Cita c;
+    Cita_abstrac c;
     String especialidad = comboxEspecialidad.getSelectedItem().toString();
     String hora_cita = campHora_cita.getText();
     String fecha_cita = campFecha_cita.getText();
-    c = new Cita(fecha_cita, hora_cita, especialidad) {
+    int cod_espec  = Integer.parseInt(campCod_espec.getText());
+    c = new Cita_abstrac(fecha_cita, hora_cita, especialidad,cod_espec) {
         
         @Override
         public void registrar_cita() {
             try {
-            PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora) VALUES (?,?)");
+            PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(id_especialidad,Nombre_Espec) VALUES(?,?)");
+            guardar_esp.setInt(1,cod_espec);
+            guardar_esp.setString(2, especialidad);
+            guardar_esp.executeUpdate();
+            PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora,id_especialidad) VALUES (?,?,?)");
             guardar_cita.setString(1,fecha_cita);
             guardar_cita.setString(2,hora_cita);
+            guardar_cita.setInt(3, cod_espec);
             guardar_cita.executeUpdate();
-            PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(Nombre_Espec) VALUES(?)");
-            guardar_esp.setString(1, especialidad);
-            guardar_esp.executeUpdate();
             JOptionPane.showMessageDialog(null, " Cita agendada");
             campHora_cita.setText("");
             campFecha_cita.setText("");
@@ -364,6 +379,7 @@ public class registrar_cita extends javax.swing.JFrame{
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campApellido;
+    private javax.swing.JTextField campCod_espec;
     private javax.swing.JTextField campDni;
     private javax.swing.JTextField campEspecialidad;
     private javax.swing.JFormattedTextField campFecha_cita;

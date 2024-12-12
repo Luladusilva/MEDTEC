@@ -7,7 +7,7 @@ package interfaz_grafica;
 import javax.swing.JOptionPane;
 import java.sql.*;
 import operacion.Conexion_db;
-import clase_abstracta.Paciente;
+import clase_abstracta.Paciente_abstrac;
 
 public class registrar_usuario extends javax.swing.JFrame {
 
@@ -347,8 +347,8 @@ public class registrar_usuario extends javax.swing.JFrame {
         int celular = Integer.parseInt(campTelefono.getText());
         String fecha_nac = campFecha_nac.getText();
         
-        Paciente p;
-        p = new Paciente(dni, nombre, apellido, genero, celular, fecha_nac) {
+        Paciente_abstrac p;
+        p = new Paciente_abstrac(dni, nombre, apellido, genero, celular, fecha_nac) {
             @Override
             public void registrar_paciente() {
                 try {

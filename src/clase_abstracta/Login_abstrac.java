@@ -6,23 +6,23 @@ package clase_abstracta;
 
 import interfaz_class.interface_login;
 
-public abstract class Login implements interface_login{
+public abstract class Login_abstrac implements interface_login{
 
-    private String dni;
+    private int dni;
 
-    public Login(String dni) {
+    public Login_abstrac(int dni) {
         this.dni = dni;
     }
 
-    public String getDni() {
+    public int getDni() {
         return dni;
     }
 
-    public void setDni(String dni) {
+    public void setDni(int dni) {
         this.dni = dni;
     }
     
     @Override
-    public void validacion(){
+    public void validacion(int valor){
     }
 }

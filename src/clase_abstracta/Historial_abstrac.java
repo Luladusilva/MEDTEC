@@ -7,11 +7,14 @@ package clase_abstracta;
 import interfaz_class.interface_buscarDatos;
 import interfaz_class.Interface_mostrarDatos;
 
-public abstract class Historial implements interface_buscarDatos, Interface_mostrarDatos{
+public abstract class Historial_abstrac implements interface_buscarDatos, Interface_mostrarDatos{
     
     private int DNI;
     
-    public Historial(int DNI){
+    public Historial_abstrac(){
+    }
+    
+    public Historial_abstrac(int DNI){
         this.DNI = DNI;
     }
 

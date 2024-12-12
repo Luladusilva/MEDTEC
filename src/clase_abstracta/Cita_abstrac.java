@@ -6,20 +6,22 @@ package clase_abstracta;
 
 import interfaz_class.interface_cita;
 
-public abstract class Cita implements interface_cita{
+public abstract class Cita_abstrac implements interface_cita{
     private String fecha;
     private String hora;
     private String especialidad;
     private String estado;
+    private int cod;
     
-    public Cita(String especialidad){
+    public Cita_abstrac(String especialidad){
         this.especialidad = especialidad;
     }
     
-    public Cita(String fecha, String hora, String especialidad){
+    public Cita_abstrac(String fecha, String hora, String especialidad, int cod){
         this.fecha = fecha;
         this.hora = hora;
         this.especialidad = especialidad;
+        this.cod = cod;
     }
 
     public String getFecha() {
@@ -46,6 +48,14 @@ public abstract class Cita implements interface_cita{
         this.especialidad = especialidad;
     }
 
+    public int getCod() {
+        return cod;
+    }
+
+    public void setCod(int cod) {
+        this.cod = cod;
+    }
+    
     @Override
     public void registrar_cita() {
     }

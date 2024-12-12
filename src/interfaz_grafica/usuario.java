@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package interfaz_grafica;
 
 import java.sql.*;
@@ -13,15 +10,18 @@ public class usuario extends javax.swing.JFrame {
     Conexion_db enlace = new Conexion_db();
     Connection conect = enlace.conexion();
     
-    private String consulta = "SELECT DNI_paciente,Nombre,Apellido,Genero,Celular,Fecha_nacimiento FROM PACIENTE";
-    
-    
     public usuario() {
         initComponents();
         ejecutar();
+        Login log = new Login();
+        
     }
-
+    
+    
+    private final String consulta = "SELECT DNI_paciente,Nombre,Apellido,Genero,Celular,Fecha_nacimiento FROM PACIENTE WHERE DNI_paciente =  ";
+    
     public void ejecutar(){
+        
         try {
             Statement leer = conect.createStatement();
            
@@ -38,11 +38,6 @@ public class usuario extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, e + " Error en la consulta");
         }
     }
-
-    
-    
-
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -138,7 +133,7 @@ public class usuario extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 0, 153));
+        jPanel1.setBackground(new java.awt.Color(15, 196, 167));
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -161,9 +156,9 @@ public class usuario extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jPanel2.setBackground(new java.awt.Color(51, 0, 153));
+        jPanel2.setBackground(new java.awt.Color(15, 196, 167));
 
-        jButton2.setBackground(new java.awt.Color(51, 0, 153));
+        jButton2.setBackground(new java.awt.Color(15, 196, 167));
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HISTORIAL");
@@ -174,7 +169,7 @@ public class usuario extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(51, 0, 153));
+        jButton4.setBackground(new java.awt.Color(15, 196, 167));
         jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("CITA");
@@ -314,8 +309,7 @@ public class usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_camp_dniActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-   
-        
+         
     }//GEN-LAST:event_jButton1ActionPerformed
     
     private void G_usuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_G_usuarioActionPerformed

@@ -9,5 +9,5 @@ package interfaz_class;
  * @author HP
  */
 public interface interface_login {
-    public void validacion();
+    public void validacion(int valor);
 }

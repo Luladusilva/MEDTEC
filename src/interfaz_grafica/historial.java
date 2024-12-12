@@ -5,7 +5,7 @@ import java.sql.*;
 import operacion.Conexion_db;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
-
+import clase_abstracta.Historial_abstrac;
 
 public class historial extends javax.swing.JFrame {
 
@@ -17,7 +17,34 @@ public class historial extends javax.swing.JFrame {
         mostrarDatos();
     }
     
-    public void mostrarDatos(){
+   
+        public void mostrarDatos(){
+            DefaultTableModel thistorial = new DefaultTableModel();
+            thistorial.addColumn("FECHA");
+            thistorial.addColumn("HORA");
+            thistorial.addColumn("ESPECIALIDAD");
+            thistorial.addColumn("MÉDICO");
+            tableHistorial.setModel(thistorial);
+
+            String []datos = new String[3];
+            try {
+                Statement leer = conect.createStatement();
+                ResultSet resultado = leer.executeQuery("""
+                                                        SELECT CITA_MED.fecha, CITA_MED.hora, Especialidad.Nombre_Espec FROM CITA_MED INNER JOIN Especialidad ON CITA_MED.id_especialidad = Especialidad.id_especialidad
+                                                        """);
+                while(resultado.next()){
+                    datos[0] = resultado.getString(1);
+                    datos[1] = resultado.getString(2);
+                    datos[2] = resultado.getString(3);
+                    thistorial.addRow(datos);
+                } 
+                tableHistorial.setModel(thistorial);
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, e + " Error en la consulta");
+            }
+            }
+   
+    public void buscar(String valor){
         DefaultTableModel thistorial = new DefaultTableModel();
         thistorial.addColumn("FECHA");
         thistorial.addColumn("HORA");
@@ -25,20 +52,31 @@ public class historial extends javax.swing.JFrame {
         thistorial.addColumn("MÉDICO");
         tableHistorial.setModel(thistorial);
         
+        String cod;
+        
+        if(valor == null){
+            cod = "Select fecha,hora,id_especialidad From Cita_Med";
+        }else{
+            if(valor != null){
+                cod = "SELECT CITA_MED.fecha, CITA_MED.hora, Especialidad.Nombre_Espec FROM CITA_MED INNER JOIN Especialidad ON CITA_MED.id_especialidad = Especialidad.id_especialidad Where CITA_MED.Fecha = '"+valor+"'";
+            }else{
+                cod = "Select fecha,hora,id_especialidad From Cita_Med";
+            }
+        }
+        
         String []datos = new String[3];
+        
         try {
             Statement leer = conect.createStatement();
-            Statement leer_espc = conect.createStatement();
-            ResultSet resultado = leer.executeQuery("SELECT hora,fecha FROM CITA_MED");
-            ResultSet resultado_espc = leer_espc.executeQuery("SELECT Nombre_Espec FROM Especialidad");
+            ResultSet resultado = leer.executeQuery(cod);
+            
             while(resultado.next()){
                 datos[0] = resultado.getString(1);
                 datos[1] = resultado.getString(2);
+                datos[2] = resultado.getString(3);
+                
+                thistorial.addRow(datos);
             }
-            while(resultado_espc.next()){
-                datos[2] = resultado_espc.getString(1);
-            }
-            thistorial.addRow(datos);
             tableHistorial.setModel(thistorial);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e + " Error en la consulta");
@@ -69,9 +107,10 @@ public class historial extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTFiltFecha = new javax.swing.JTextField();
+        campFecha = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jCBEspec = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -278,14 +317,14 @@ public class historial extends javax.swing.JFrame {
 
         jLabel3.setText("Fecha:");
 
-        jTFiltFecha.addActionListener(new java.awt.event.ActionListener() {
+        campFecha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTFiltFechaActionPerformed(evt);
+                campFechaActionPerformed(evt);
             }
         });
-        jTFiltFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+        campFecha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTFiltFechaKeyTyped(evt);
+                campFechaKeyTyped(evt);
             }
         });
 
@@ -298,25 +337,32 @@ public class historial extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(92, 92, 92)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(92, 92, 92)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(143, 143, 143)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTFiltFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(60, 60, 60)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(campFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(42, 42, 42)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                        .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(45, 45, 45)
+                        .addComponent(jButton1))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -326,10 +372,11 @@ public class historial extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTFiltFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(299, Short.MAX_VALUE))
+                    .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
+                .addContainerGap(298, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
@@ -349,13 +396,13 @@ public class historial extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jCBEspecActionPerformed
 
-    private void jTFiltFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTFiltFechaKeyTyped
+    private void campFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campFechaKeyTyped
      
-    }//GEN-LAST:event_jTFiltFechaKeyTyped
+    }//GEN-LAST:event_campFechaKeyTyped
 
-    private void jTFiltFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTFiltFechaActionPerformed
+    private void campFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campFechaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTFiltFechaActionPerformed
+    }//GEN-LAST:event_campFechaActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         usuario ventanaUsuario = new usuario();
@@ -392,9 +439,16 @@ public class historial extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton6ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String valor = campFecha.getText();
+        buscar(valor);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField campFecha;
     private javax.swing.JButton jBCita;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -414,7 +468,6 @@ public class historial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTFiltFecha;
     private javax.swing.JTable tableHistorial;
     // End of variables declaration//GEN-END:variables
 }

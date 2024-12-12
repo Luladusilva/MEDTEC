@@ -7,7 +7,7 @@ package clase_abstracta;
 
 import interfaz_class.interface_registrar;
 
-public abstract class Paciente implements interface_registrar{
+public abstract class Paciente_abstrac implements interface_registrar{
     private String nombre;
     private String apellido;
     private int celular;
@@ -16,7 +16,7 @@ public abstract class Paciente implements interface_registrar{
     private String genero;
     
     
-    public Paciente(int dni, String nombre, String apellido, String genero, int celular, String fecha_nac) {
+    public Paciente_abstrac(int dni, String nombre, String apellido, String genero, int celular, String fecha_nac) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.celular = celular;
