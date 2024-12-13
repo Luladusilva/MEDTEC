@@ -159,6 +159,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="undecorated" type="boolean" value="true"/>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -395,7 +396,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Especialidad:"/>
+            <Property name="text" type="java.lang.String" value="Buscar por:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

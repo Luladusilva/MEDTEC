@@ -106,6 +106,7 @@ public class usuario extends javax.swing.JFrame {
         jLabel8.setText("jLabel4");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(15, 196, 167));
 
