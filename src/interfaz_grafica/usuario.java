@@ -1,43 +1,15 @@
 
 package interfaz_grafica;
 
-import java.sql.*;
-import operacion.Conexion_db;
-import javax.swing.JOptionPane;
+import clase_concreta.perfil_clase;
 
 public class usuario extends javax.swing.JFrame {
     
-    Conexion_db enlace = new Conexion_db();
-    Connection conect = enlace.conexion();
     
     public usuario() {
         initComponents();
-        ejecutar();
-        Login log = new Login();
-        
     }
     
-    
-    private final String consulta = "SELECT DNI_paciente,Nombre,Apellido,Genero,Celular,Fecha_nacimiento FROM PACIENTE WHERE DNI_paciente =  ";
-    
-    public void ejecutar(){
-        
-        try {
-            Statement leer = conect.createStatement();
-           
-            ResultSet resultado = leer.executeQuery(consulta);
-            while(resultado.next()){
-                lblDni.setText(resultado.getString(1));
-                lblNombre.setText(resultado.getString(2));
-                lblApellido.setText(resultado.getString(3));
-                lblGenero.setText(resultado.getString(4));
-                lblCelular.setText(resultado.getString(5));
-                lblFecha_nac.setText(resultado.getString(6));
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
-        }
-    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -67,8 +39,10 @@ public class usuario extends javax.swing.JFrame {
         lblGenero = new javax.swing.JLabel();
         lblCelular = new javax.swing.JLabel();
         lblFecha_nac = new javax.swing.JLabel();
-        lblDni = new javax.swing.JLabel();
         lblApellido = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        campIngresado_dni = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
 
         jLabel3.setText("jLabel3");
 
@@ -221,9 +195,16 @@ public class usuario extends javax.swing.JFrame {
 
         lblFecha_nac.setBorder(javax.swing.BorderFactory.createTitledBorder("Fecha de Nacimiento"));
 
-        lblDni.setBorder(javax.swing.BorderFactory.createTitledBorder("Documento de Identidad (DNI)"));
-
         lblApellido.setBorder(javax.swing.BorderFactory.createTitledBorder("Apellido"));
+
+        jLabel2.setText("Documento de identidad (DNI):");
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -235,8 +216,13 @@ public class usuario extends javax.swing.JFrame {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(campIngresado_dni, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBuscar)))
+                        .addGap(83, 83, 83)
                         .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -257,8 +243,13 @@ public class usuario extends javax.swing.JFrame {
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(68, 68, 68)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDni, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(campIngresado_dni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnBuscar))))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblApellido, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,7 +260,7 @@ public class usuario extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblFecha_nac, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCelular, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         pack();
@@ -279,7 +270,7 @@ public class usuario extends javax.swing.JFrame {
         historial ventanaHistorial = new historial();
         ventanaHistorial.setVisible(true);
         ventanaHistorial.setLocationRelativeTo(null);
-        this.setVisible(false);        // TODO add your handling code here:
+        this.setVisible(false);       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -316,11 +307,19 @@ public class usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_G_usuarioActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        String dni = campIngresado_dni.getText();
+        perfil_clase p=new perfil_clase(dni);
+        p.mostrarDatos();
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField A_usuario;
     private javax.swing.JComboBox<String> G_usuario;
     private javax.swing.JTextField N_usuario;
     private javax.swing.JTextField Num_usuario;
+    private javax.swing.JButton btnBuscar;
+    public static javax.swing.JTextField campIngresado_dni;
     private javax.swing.JTextField camp_dni;
     private javax.swing.JFormattedTextField con_usuario;
     private javax.swing.JFormattedTextField f_nacimiento;
@@ -331,6 +330,7 @@ public class usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -338,11 +338,10 @@ public class usuario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lblApellido;
-    private javax.swing.JLabel lblCelular;
-    private javax.swing.JLabel lblDni;
-    private javax.swing.JLabel lblFecha_nac;
-    private javax.swing.JLabel lblGenero;
-    private javax.swing.JLabel lblNombre;
+    public static javax.swing.JLabel lblApellido;
+    public static javax.swing.JLabel lblCelular;
+    public static javax.swing.JLabel lblFecha_nac;
+    public static javax.swing.JLabel lblGenero;
+    public static javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

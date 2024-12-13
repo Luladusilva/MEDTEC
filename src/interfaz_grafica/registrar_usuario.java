@@ -4,15 +4,10 @@
  */
 package interfaz_grafica;
 
-import javax.swing.JOptionPane;
-import java.sql.*;
-import operacion.Conexion_db;
-import clase_abstracta.Paciente_abstrac;
+import clase_concreta.paciente_clase;
 
 public class registrar_usuario extends javax.swing.JFrame {
 
-    Conexion_db enlace = new Conexion_db();
-    Connection conect = enlace.conexion();
     
     
     
@@ -183,9 +178,9 @@ public class registrar_usuario extends javax.swing.JFrame {
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
-        jLabel7.setText("Año - mes -  dia");
+        jLabel7.setText("DD/MM/YYYY");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(150, 360, 74, 14);
+        jLabel7.setBounds(150, 360, 66, 14);
 
         jLabel10.setText("Género:");
         jPanel1.add(jLabel10);
@@ -322,29 +317,9 @@ public class registrar_usuario extends javax.swing.JFrame {
         int celular = Integer.parseInt(campTelefono.getText());
         String fecha_nac = campFecha_nac.getText();
         
-        Paciente_abstrac p;
-        p = new Paciente_abstrac(dni, nombre, apellido, genero, celular, fecha_nac) {
-            @Override
-            public void registrar_paciente() {
-                try {
-                    PreparedStatement guardar_user = conect.prepareStatement("INSERT INTO Paciente(dni_paciente, Nombre, Apellido, Genero, Celular, Fecha_nacimiento) VALUES (?,?,?,?,?,?)");
-                    guardar_user.setInt(1,dni);
-                    guardar_user.setString(2,nombre);
-                    guardar_user.setString(3, apellido);
-                    guardar_user.setString(4, genero);
-                    guardar_user.setInt(5,celular);
-                    guardar_user.setString(6, fecha_nac);
-                    guardar_user.executeUpdate();
-                    JOptionPane.showMessageDialog(null, " Usuario agregado");
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e + " No se pudo agregar el usuario");
-                }
-            }
-            
-        };
-        p.registrar_paciente();
-        
-        
+        paciente_clase p=new paciente_clase(dni, nombre, apellido, genero, celular, fecha_nac);
+                    
+        p.registrar_paciente(dni, nombre, apellido, genero, celular, fecha_nac);
         menu_principal ventanaCita = new menu_principal();
         ventanaCita.setVisible(true);
         ventanaCita.setLocationRelativeTo(null);

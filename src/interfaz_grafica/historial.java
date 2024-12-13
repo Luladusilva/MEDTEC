@@ -1,88 +1,16 @@
 
 package interfaz_grafica;
 
-import java.sql.*;
-import operacion.Conexion_db;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.JOptionPane;
-import clase_abstracta.Historial_abstrac;
+import clase_concreta.historial_clase;
+
 
 public class historial extends javax.swing.JFrame {
-
-    Conexion_db enlace = new Conexion_db();
-    Connection conect = enlace.conexion();
+    historial_clase hc = new historial_clase();
     
     public historial() {
         initComponents();
-        mostrarDatos();
+        hc.mostrarDatos();
     }
-    
-   
-        public void mostrarDatos(){
-            DefaultTableModel thistorial = new DefaultTableModel();
-            thistorial.addColumn("FECHA");
-            thistorial.addColumn("HORA");
-            thistorial.addColumn("ESPECIALIDAD");
-            thistorial.addColumn("MÉDICO");
-            tableHistorial.setModel(thistorial);
-
-            String []datos = new String[3];
-            try {
-                Statement leer = conect.createStatement();
-                ResultSet resultado = leer.executeQuery("""
-                                                        SELECT CITA_MED.fecha, CITA_MED.hora, Especialidad.Nombre_Espec FROM CITA_MED INNER JOIN Especialidad ON CITA_MED.id_especialidad = Especialidad.id_especialidad
-                                                        """);
-                while(resultado.next()){
-                    datos[0] = resultado.getString(1);
-                    datos[1] = resultado.getString(2);
-                    datos[2] = resultado.getString(3);
-                    thistorial.addRow(datos);
-                } 
-                tableHistorial.setModel(thistorial);
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e + " Error en la consulta");
-            }
-            }
-   
-    public void buscar(String valor){
-        DefaultTableModel thistorial = new DefaultTableModel();
-        thistorial.addColumn("FECHA");
-        thistorial.addColumn("HORA");
-        thistorial.addColumn("ESPECIALIDAD");
-        thistorial.addColumn("MÉDICO");
-        tableHistorial.setModel(thistorial);
-        
-        String cod;
-        
-        if(valor == null){
-            cod = "Select fecha,hora,id_especialidad From Cita_Med";
-        }else{
-            if(valor != null){
-                cod = "SELECT CITA_MED.fecha, CITA_MED.hora, Especialidad.Nombre_Espec FROM CITA_MED INNER JOIN Especialidad ON CITA_MED.id_especialidad = Especialidad.id_especialidad Where CITA_MED.Fecha = '"+valor+"'";
-            }else{
-                cod = "Select fecha,hora,id_especialidad From Cita_Med";
-            }
-        }
-        
-        String []datos = new String[3];
-        
-        try {
-            Statement leer = conect.createStatement();
-            ResultSet resultado = leer.executeQuery(cod);
-            
-            while(resultado.next()){
-                datos[0] = resultado.getString(1);
-                datos[1] = resultado.getString(2);
-                datos[2] = resultado.getString(3);
-                
-                thistorial.addRow(datos);
-            }
-            tableHistorial.setModel(thistorial);
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e + " Error en la consulta");
-        }
-    }
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -104,13 +32,12 @@ public class historial extends javax.swing.JFrame {
         jBCita = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        campFecha = new javax.swing.JTextField();
+        campBuscar = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jCBEspec = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableHistorial = new javax.swing.JTable();
+        combFiltro = new javax.swing.JComboBox<>();
 
         jCheckBox1.setText("jCheckBox1");
 
@@ -278,27 +205,18 @@ public class historial extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
         jLabel2.setText("FILTROS:");
 
-        jLabel3.setText("Fecha:");
-
-        campFecha.addActionListener(new java.awt.event.ActionListener() {
+        campBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campFechaActionPerformed(evt);
+                campBuscarActionPerformed(evt);
             }
         });
-        campFecha.addKeyListener(new java.awt.event.KeyAdapter() {
+        campBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                campFechaKeyTyped(evt);
+                campBuscarKeyTyped(evt);
             }
         });
 
         jLabel4.setText("Especialidad:");
-
-        jCBEspec.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia", "Pediatria", "Dermatología", "Gastroenterología", " " }));
-        jCBEspec.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCBEspecActionPerformed(evt);
-            }
-        });
 
         jButton1.setBackground(new java.awt.Color(15, 220, 167));
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
@@ -322,29 +240,31 @@ public class historial extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(tableHistorial);
 
+        combFiltro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Mostrar todo", "DNI", "Especialidad" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(169, 169, 169)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(campFecha, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
+                        .addGap(166, 166, 166)
                         .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(45, 45, 45)
+                        .addComponent(combFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(campBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 554, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(156, 156, 156))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,11 +273,10 @@ public class historial extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(campFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(jCBEspec, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(combFiltro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(18, Short.MAX_VALUE))
@@ -396,17 +315,13 @@ public class historial extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jBCitaActionPerformed
 
-    private void jCBEspecActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBEspecActionPerformed
-        
-    }//GEN-LAST:event_jCBEspecActionPerformed
-
-    private void campFechaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campFechaKeyTyped
+    private void campBuscarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campBuscarKeyTyped
      
-    }//GEN-LAST:event_campFechaKeyTyped
+    }//GEN-LAST:event_campBuscarKeyTyped
 
-    private void campFechaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campFechaActionPerformed
+    private void campBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campBuscarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campFechaActionPerformed
+    }//GEN-LAST:event_campBuscarActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         usuario ventanaUsuario = new usuario();
@@ -444,13 +359,15 @@ public class historial extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String valor = campFecha.getText();
-        buscar(valor);
+        String valor = campBuscar.getText();
+        int opt = combFiltro.getSelectedIndex();
+        hc.buscar(valor,opt);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JTextField campFecha;
+    private javax.swing.JTextField campBuscar;
+    private javax.swing.JComboBox<String> combFiltro;
     private javax.swing.JButton jBCita;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -458,10 +375,8 @@ public class historial extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jCBEspec;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -472,6 +387,6 @@ public class historial extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable tableHistorial;
+    public static javax.swing.JTable tableHistorial;
     // End of variables declaration//GEN-END:variables
 }

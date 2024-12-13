@@ -10,6 +10,6 @@ package interfaz_class;
  */
 public interface interface_buscarDatos {
     
-    public void buscar();
+    public void buscar(String valor, int opt);
     
 }

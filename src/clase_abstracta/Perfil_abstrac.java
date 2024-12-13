@@ -9,8 +9,23 @@ import interfaz_class.Interface_mostrarDatos;
 public abstract class Perfil_abstrac implements Interface_mostrarDatos{
     
     private String dni;
-    private String nombre;
-    private String apellido;
+
+    public Perfil_abstrac(String dni) {
+        this.dni = dni;
+    }
+
+    public String getDni() {
+        return dni;
+    }
+
+    public void setDni(String dni) {
+        this.dni = dni;
+    }
+    
+    @Override
+    public void mostrarDatos(){
+    
+    }
     
     
 }

@@ -9,5 +9,5 @@ package interfaz_class;
  * @author HP
  */
 public interface interface_cita {
-    public void registrar_cita();
+    public void registrar_cita(int cod_espec, String especialidad, String fecha_cita, String hora_cita);
 }

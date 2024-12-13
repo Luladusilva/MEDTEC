@@ -333,28 +333,29 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="554" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel3" min="-2" pref="37" max="-2" attributes="0"/>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="campFecha" min="-2" pref="92" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                  <Component id="jLabel2" min="-2" pref="57" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="166" max="-2" attributes="0"/>
                           <Component id="jLabel4" min="-2" pref="80" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jCBEspec" min="-2" pref="117" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                          <Component id="combFiltro" min="-2" pref="106" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
+                          <Component id="campBuscar" min="-2" pref="161" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jLabel2" min="-2" pref="57" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="jScrollPane2" min="-2" pref="554" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="156" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -365,11 +366,10 @@
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="campFecha" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="campBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jCBEspec" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="combFiltro" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="253" max="-2" attributes="0"/>
@@ -387,41 +387,16 @@
             <Property name="text" type="java.lang.String" value="FILTROS:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Fecha:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="campFecha">
+        <Component class="javax.swing.JTextField" name="campBuscar">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campFechaActionPerformed"/>
-            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campFechaKeyTyped"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campBuscarActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campBuscarKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Especialidad:"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JComboBox" name="jCBEspec">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Seleccione"/>
-                <StringItem index="1" value="Cardiologia"/>
-                <StringItem index="2" value="Pediatria"/>
-                <StringItem index="3" value="Dermatolog&#xed;a"/>
-                <StringItem index="4" value="Gastroenterolog&#xed;a"/>
-                <StringItem index="5" value=" "/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCBEspecActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">
           <Properties>
@@ -450,9 +425,26 @@
                   <Table columnCount="0" rowCount="4"/>
                 </Property>
               </Properties>
+              <AuxValues>
+                <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+              </AuxValues>
             </Component>
           </SubComponents>
         </Container>
+        <Component class="javax.swing.JComboBox" name="combFiltro">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="3">
+                <StringItem index="0" value="Mostrar todo"/>
+                <StringItem index="1" value="DNI"/>
+                <StringItem index="2" value="Especialidad"/>
+              </StringArray>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+          </AuxValues>
+        </Component>
       </SubComponents>
     </Container>
   </SubComponents>

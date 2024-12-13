@@ -27,7 +27,7 @@ public class Conexion_db{
     try {
         
         //Funcion para enlazar a nuestra base de datos
-        enlazar = DriverManager.getConnection("jdbc:mysql://localhost/Hospital", "root", "12345");
+        enlazar = DriverManager.getConnection("jdbc:mysql://localhost/Hospital", "root", "lspeqyrhs451877");
     } catch (Exception e) {
         //Mensaje si no se realizo bien la operacion
         JOptionPane.showMessageDialog(null, e + " No fue posible establecer la conexión");

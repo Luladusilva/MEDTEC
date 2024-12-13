@@ -75,7 +75,7 @@ public abstract class Paciente_abstrac implements interface_registrar{
     
     
     @Override
-    public void registrar_paciente(){
+    public void registrar_paciente(int dni, String nombre, String apellido, String genero, int celular, String fecha_nac){
     }
     
 }

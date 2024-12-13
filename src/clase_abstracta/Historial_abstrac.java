@@ -31,7 +31,7 @@ public abstract class Historial_abstrac implements interface_buscarDatos, Interf
     }
     
     @Override
-    public void buscar(){
+    public void buscar(String valor, int opt){
     }
     
 }

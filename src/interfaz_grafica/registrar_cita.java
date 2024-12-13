@@ -5,13 +5,10 @@
 package interfaz_grafica;
 
 import operacion.Conexion_db;
-import clase_abstracta.Cita_abstrac;
+import clase_concreta.cita_clase;
 import java.sql.*;
-import javax.swing.JOptionPane;
-/**
- *
- * @author 
- */
+
+
 public class registrar_cita extends javax.swing.JFrame{
     Conexion_db enlace = new Conexion_db();
     Connection conect = enlace.conexion();
@@ -338,35 +335,15 @@ public class registrar_cita extends javax.swing.JFrame{
     }//GEN-LAST:event_campHora_citaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Cita_abstrac c;
+        
         String especialidad = comboxEspecialidad.getSelectedItem().toString();
         String hora_cita = campHora_cita.getText();
         String fecha_cita = campFecha_cita.getText();
         int cod_espec  = Integer.parseInt(campCod_espec.getText());
-        c = new Cita_abstrac(fecha_cita, hora_cita, especialidad,cod_espec) {
-
-            @Override
-            public void registrar_cita() {
-                try {
-                    PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(id_especialidad,Nombre_Espec) VALUES(?,?)");
-                    guardar_esp.setInt(1,cod_espec);
-                    guardar_esp.setString(2, especialidad);
-                    guardar_esp.executeUpdate();
-                    PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora,id_especialidad) VALUES (?,?,?)");
-                    guardar_cita.setString(1,fecha_cita);
-                    guardar_cita.setString(2,hora_cita);
-                    guardar_cita.setInt(3, cod_espec);
-                    guardar_cita.executeUpdate();
-                    JOptionPane.showMessageDialog(null, " Cita agendada");
-                    campHora_cita.setText("");
-                    campFecha_cita.setText("");
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e + " No se pudo agendar la cita");
-                }
-            }
-        };
-        c.registrar_cita();
-
+        cita_clase c = new cita_clase(especialidad);
+        c.registrar_cita(cod_espec, especialidad,fecha_cita, hora_cita);
+        campHora_cita.setText("");
+        campFecha_cita.setText("");
         menu_principal ventanaCita = new menu_principal();
         ventanaCita.setVisible(true);
         ventanaCita.setLocationRelativeTo(null);

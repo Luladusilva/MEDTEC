@@ -4,15 +4,11 @@
  */
 package interfaz_grafica;
 
-import javax.swing.JOptionPane;
-import java.sql.*;
-import clase_abstracta.Login_abstrac;
-import operacion.Conexion_db;
+import clase_concreta.login_clase;
 
 public class Login extends javax.swing.JFrame {
-
-    Conexion_db enlace = new Conexion_db();
-    Connection conect = enlace.conexion();
+    
+    
     public Login() {
         initComponents();
     }
@@ -154,38 +150,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      Login_abstrac l;
       int valor = Integer.parseInt(campDNI.getText());
-      l=new Login_abstrac(valor) {
-          @Override
-          public void validacion(int valor){
-              if(valor != 0){
-                String consulta = "SELECT * FROM PACIENTE WHERE Dni_paciente = '"+valor+"'"; 
-                try {
-                    Statement leer = conect.createStatement();
-                    ResultSet resultado = leer.executeQuery(consulta);
-                        
-                    if (resultado.next()) {
-                    JOptionPane.showMessageDialog(null, "DNI válido. Bienvenido, " +
-                    resultado.getString("Nombre") + "!");
-                    menu_principal ventanaCita = new menu_principal();
-                    ventanaCita.setVisible(true);
-                    ventanaCita.setLocationRelativeTo(null);
-                    Login.this.setVisible(false);      
-                    }else{
-                        JOptionPane.showMessageDialog(null, "No esta registrado, relize un nuevo registro");
-                    }
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e + " Error en la consulta");
-                }
-                
-              }else{
-                  JOptionPane.showMessageDialog(null, "Por favor, ingrese un DNI válido.");
-              }
-          }
-      };
+      login_clase l = new login_clase(valor);
       l.validacion(valor);   
-      
+      this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

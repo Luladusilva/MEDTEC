@@ -57,6 +57,6 @@ public abstract class Cita_abstrac implements interface_cita{
     }
     
     @Override
-    public void registrar_cita() {
+    public void registrar_cita(int cod_espec, String especialidad, String fecha_cita, String hora_cita) {
     }
 }

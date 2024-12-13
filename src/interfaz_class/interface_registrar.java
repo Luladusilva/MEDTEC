@@ -9,6 +9,7 @@ package interfaz_class;
  * @author HP
  */
 public interface interface_registrar {
-    public void registrar_paciente();
+    
+    public void registrar_paciente(int dni, String nombre, String apellido, String genero, int celular, String fecha_nac);
     
 }
