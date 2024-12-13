@@ -173,20 +173,20 @@ public class registrar_usuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(genero_usuario);
-        genero_usuario.setBounds(370, 160, 150, 22);
+        genero_usuario.setBounds(380, 140, 150, 22);
 
         jLabel7.setBackground(new java.awt.Color(204, 204, 204));
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(204, 204, 204));
         jLabel7.setText("DD/MM/YYYY");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(150, 360, 66, 14);
+        jLabel7.setBounds(160, 340, 66, 14);
 
         jLabel10.setText("Género:");
         jPanel1.add(jLabel10);
-        jLabel10.setBounds(370, 130, 41, 16);
+        jLabel10.setBounds(380, 110, 41, 16);
 
-        jButton2.setBackground(new java.awt.Color(15, 220, 167));
+        jButton2.setBackground(new java.awt.Color(15, 196, 167));
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("ENVIAR");
@@ -197,36 +197,36 @@ public class registrar_usuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton2);
-        jButton2.setBounds(260, 470, 160, 60);
+        jButton2.setBounds(270, 450, 160, 60);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 204, 204));
         jLabel15.setText("Nombre");
         jPanel1.add(jLabel15);
-        jLabel15.setBounds(150, 250, 38, 14);
+        jLabel15.setBounds(160, 230, 38, 14);
 
         jLabel19.setText("Número de teléfono:");
         jPanel1.add(jLabel19);
-        jLabel19.setBounds(370, 340, 110, 16);
+        jLabel19.setBounds(380, 320, 110, 16);
 
         jLabel20.setText("Fecha de Nacimiento:");
         jPanel1.add(jLabel20);
-        jLabel20.setBounds(150, 340, 115, 16);
+        jLabel20.setBounds(160, 320, 115, 16);
 
         jLabel3.setText("Nombres y Apellidos:");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(150, 220, 113, 16);
+        jLabel3.setBounds(160, 200, 113, 16);
 
         jLabel21.setText("Documento de identidad (DNI):");
         jPanel1.add(jLabel21);
-        jLabel21.setBounds(150, 130, 166, 16);
+        jLabel21.setBounds(160, 110, 166, 16);
 
         jLabel8.setBackground(new java.awt.Color(204, 204, 204));
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(204, 204, 204));
         jLabel8.setText("Apellido");
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(370, 250, 39, 14);
+        jLabel8.setBounds(380, 230, 39, 14);
 
         camp_DNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -234,17 +234,17 @@ public class registrar_usuario extends javax.swing.JFrame {
             }
         });
         jPanel1.add(camp_DNI);
-        camp_DNI.setBounds(150, 160, 160, 22);
+        camp_DNI.setBounds(160, 140, 160, 22);
         jPanel1.add(campApellido);
-        campApellido.setBounds(370, 270, 150, 22);
+        campApellido.setBounds(380, 250, 150, 22);
         jPanel1.add(camp_Nombre);
-        camp_Nombre.setBounds(150, 270, 150, 22);
+        camp_Nombre.setBounds(160, 250, 150, 22);
         jPanel1.add(campFecha_nac);
-        campFecha_nac.setBounds(150, 380, 150, 22);
+        campFecha_nac.setBounds(160, 360, 150, 22);
         jPanel1.add(campTelefono);
-        campTelefono.setBounds(370, 380, 150, 22);
+        campTelefono.setBounds(380, 360, 150, 22);
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.setBackground(new java.awt.Color(48, 49, 75));
         jPanel2.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
@@ -253,7 +253,7 @@ public class registrar_usuario extends javax.swing.JFrame {
         jPanel2.add(jLabel1);
         jLabel1.setBounds(230, 30, 248, 30);
 
-        jButton3.setBackground(new java.awt.Color(0, 0, 0));
+        jButton3.setBackground(new java.awt.Color(48, 49, 75));
         jButton3.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("<");

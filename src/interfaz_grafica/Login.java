@@ -42,7 +42,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(244, 245, 245));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(15, 196, 167));
+        jPanel2.setBackground(new java.awt.Color(48, 49, 75));
         jPanel2.setForeground(new java.awt.Color(204, 0, 204));
         jPanel2.setLayout(null);
 
@@ -51,13 +51,13 @@ public class Login extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("INGRESE SUS DATOS");
         jPanel2.add(jLabel2);
-        jLabel2.setBounds(90, 70, 179, 49);
+        jLabel2.setBounds(90, 40, 179, 49);
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("DNI:");
         jPanel2.add(jLabel3);
-        jLabel3.setBounds(90, 160, 30, 16);
+        jLabel3.setBounds(90, 140, 30, 16);
         jPanel2.add(jLabel4);
         jLabel4.setBounds(132, 173, 0, 0);
 
@@ -65,7 +65,7 @@ public class Login extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("¿No esta registrado?");
         jPanel2.add(jLabel5);
-        jLabel5.setBounds(130, 300, 112, 15);
+        jLabel5.setBounds(120, 270, 112, 15);
 
         campDNI.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,9 +73,9 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel2.add(campDNI);
-        campDNI.setBounds(140, 160, 133, 22);
+        campDNI.setBounds(140, 140, 133, 22);
 
-        jButton1.setBackground(new java.awt.Color(0, 0, 0));
+        jButton1.setBackground(new java.awt.Color(15, 196, 167));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("REGISTRARSE");
@@ -85,15 +85,15 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton1);
-        jButton1.setBounds(130, 320, 108, 23);
+        jButton1.setBounds(120, 300, 108, 23);
 
         jLabel6.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Haga click");
         jPanel2.add(jLabel6);
-        jLabel6.setBounds(150, 350, 56, 16);
+        jLabel6.setBounds(150, 340, 56, 16);
 
-        jButton2.setBackground(new java.awt.Color(0, 0, 0));
+        jButton2.setBackground(new java.awt.Color(15, 196, 167));
         jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("INGRESAR");
@@ -103,31 +103,30 @@ public class Login extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton2);
-        jButton2.setBounds(140, 200, 90, 23);
+        jButton2.setBounds(130, 190, 110, 30);
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 360, 400));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 390, 400));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/Medteclogo2.png"))); // NOI18N
-        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, -1));
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo4grande.jpeg"))); // NOI18N
+        jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
 
         jLabel7.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/CLINICA2 (1).jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/consultorioblack.png"))); // NOI18N
         jLabel1.setFocusable(false);
         jLabel1.setOpaque(true);
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 350, 400));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-150, -10, 500, 410));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

@@ -143,12 +143,12 @@ private String obtenerEspecialidadProximaCita() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(13, 13, 13));
+        jPanel1.setBackground(new java.awt.Color(48, 49, 75));
 
-        jButton5.setBackground(new java.awt.Color(13, 13, 13));
+        jButton5.setBackground(new java.awt.Color(48, 49, 75));
         jButton5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user2.png"))); // NOI18N
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/avatar.png"))); // NOI18N
         jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -197,7 +197,7 @@ private String obtenerEspecialidadProximaCita() {
         jPanel2.add(jButton2);
         jButton2.setBounds(350, 10, 216, 41);
 
-        jButton4.setBackground(new java.awt.Color(15, 220, 167));
+        jButton4.setBackground(new java.awt.Color(15, 196, 167));
         jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("CITA");
@@ -212,7 +212,7 @@ private String obtenerEspecialidadProximaCita() {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel5.setBackground(new java.awt.Color(15, 220, 167));
+        jPanel5.setBackground(new java.awt.Color(15, 196, 167));
 
         jLabel8.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,7 +250,7 @@ private String obtenerEspecialidadProximaCita() {
                 .addGap(20, 20, 20))
         );
 
-        jPanel3.setBackground(new java.awt.Color(15, 220, 167));
+        jPanel3.setBackground(new java.awt.Color(15, 196, 167));
         jPanel3.setForeground(new java.awt.Color(255, 255, 255));
 
         labelCitas.setFont(new java.awt.Font("Bahnschrift", 1, 48)); // NOI18N
@@ -296,7 +296,7 @@ private String obtenerEspecialidadProximaCita() {
                     .addContainerGap(79, Short.MAX_VALUE)))
         );
 
-        jButton1.setBackground(new java.awt.Color(15, 220, 167));
+        jButton1.setBackground(new java.awt.Color(15, 196, 167));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("AGENDAR CITA");
