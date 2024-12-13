@@ -51,7 +51,6 @@ public class registrar_cita extends javax.swing.JFrame{
         campDni = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
         comboxEspecialidad = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -152,16 +151,8 @@ public class registrar_cita extends javax.swing.JFrame{
         jLabel3.setText("Opcional");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel3.setLayout(null);
-
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel3.add(jSeparator1);
-        jSeparator1.setBounds(0, 56, 520, 3);
 
         comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia (123)", "Pediatria (456)", "Dermatologían(789)", "Gastroenterología (345)", " " }));
         comboxEspecialidad.addActionListener(new java.awt.event.ActionListener() {
@@ -169,24 +160,16 @@ public class registrar_cita extends javax.swing.JFrame{
                 comboxEspecialidadActionPerformed(evt);
             }
         });
-        jPanel3.add(comboxEspecialidad);
-        comboxEspecialidad.setBounds(170, 257, 159, 32);
 
         jLabel7.setText("Fecha de cita");
-        jPanel3.add(jLabel7);
-        jLabel7.setBounds(170, 119, 69, 16);
 
         jLabel9.setText("Especialidad");
-        jPanel3.add(jLabel9);
-        jLabel9.setBounds(170, 227, 65, 16);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 204, 204));
         jLabel15.setText("DD/MM/YY");
-        jPanel3.add(jLabel15);
-        jLabel15.setBounds(170, 179, 54, 14);
 
-        jButton1.setBackground(new java.awt.Color(15, 196, 167));
+        jButton1.setBackground(new java.awt.Color(15, 220, 167));
         jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("ENVIAR");
@@ -195,16 +178,10 @@ public class registrar_cita extends javax.swing.JFrame{
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1);
-        jButton1.setBounds(279, 373, 180, 51);
 
         jLabel16.setText("Hora de cita");
-        jPanel3.add(jLabel16);
-        jLabel16.setBounds(409, 119, 64, 16);
 
         campFecha_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
-        jPanel3.add(campFecha_cita);
-        campFecha_cita.setBounds(170, 149, 160, 30);
 
         campHora_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("h:mm "))));
         campHora_cita.addActionListener(new java.awt.event.ActionListener() {
@@ -212,20 +189,17 @@ public class registrar_cita extends javax.swing.JFrame{
                 campHora_citaActionPerformed(evt);
             }
         });
-        jPanel3.add(campHora_cita);
-        campHora_cita.setBounds(410, 149, 160, 30);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
         jLabel18.setText("HH:MM");
-        jPanel3.add(jLabel18);
-        jLabel18.setBounds(410, 179, 39, 14);
 
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
-        retroBoton.setBackground(new java.awt.Color(244, 245, 245));
-        retroBoton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        retroBoton.setBackground(new java.awt.Color(0, 0, 0));
+        retroBoton.setFont(new java.awt.Font("Bahnschrift", 1, 36)); // NOI18N
+        retroBoton.setForeground(new java.awt.Color(255, 255, 255));
         retroBoton.setText("<");
         retroBoton.setBorder(null);
         retroBoton.addActionListener(new java.awt.event.ActionListener() {
@@ -244,29 +218,94 @@ public class registrar_cita extends javax.swing.JFrame{
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(73, 73, 73)
                 .addComponent(retroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(235, 235, 235)
+                .addGap(182, 182, 182)
                 .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(315, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(retroBoton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(retroBoton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
-        jPanel3.add(jPanel4);
-        jPanel4.setBounds(0, 0, 780, 80);
-        jPanel3.add(campCod_espec);
-        campCod_espec.setBounds(410, 257, 160, 32);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabel7)
+                .addGap(170, 170, 170)
+                .addComponent(jLabel16))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(campFecha_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(80, 80, 80)
+                .addComponent(campHora_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabel15)
+                .addGap(186, 186, 186)
+                .addComponent(jLabel18))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(jLabel9))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(170, 170, 170)
+                .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(81, 81, 81)
+                .addComponent(campCod_espec, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(279, 279, 279)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel16))
+                .addGap(14, 14, 14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(campFecha_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(campHora_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel15)
+                    .addComponent(jLabel18))
+                .addGap(34, 34, 34)
+                .addComponent(jLabel9)
+                .addGap(14, 14, 14)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(campCod_espec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(81, 81, 81)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
 
-        getContentPane().add(jPanel3);
-        jPanel3.setBounds(6, 6, 780, 520);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -373,7 +412,6 @@ public class registrar_cita extends javax.swing.JFrame{
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JButton retroBoton;
     // End of variables declaration//GEN-END:variables

@@ -142,7 +142,6 @@ private String obtenerEspecialidadProximaCita() {
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(13, 13, 13));
 
@@ -150,6 +149,7 @@ private String obtenerEspecialidadProximaCita() {
         jButton5.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
         jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/user2.png"))); // NOI18N
+        jButton5.setBorder(null);
         jButton5.setBorderPainted(false);
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -175,23 +175,18 @@ private String obtenerEspecialidadProximaCita() {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
+                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(22, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
         );
 
-        getContentPane().add(jPanel1);
-        jPanel1.setBounds(0, 0, 850, 62);
-
         jPanel2.setBackground(new java.awt.Color(244, 245, 245));
         jPanel2.setLayout(null);
 
-        jButton2.setBackground(new java.awt.Color(15, 220, 167));
         jButton2.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("HISTORIAL");
         jButton2.setBorderPainted(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -202,7 +197,9 @@ private String obtenerEspecialidadProximaCita() {
         jPanel2.add(jButton2);
         jButton2.setBounds(350, 10, 216, 41);
 
+        jButton4.setBackground(new java.awt.Color(15, 220, 167));
         jButton4.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("CITA");
         jButton4.setBorderPainted(false);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -212,9 +209,6 @@ private String obtenerEspecialidadProximaCita() {
         });
         jPanel2.add(jButton4);
         jButton4.setBounds(20, 10, 214, 41);
-
-        getContentPane().add(jPanel2);
-        jPanel2.setBounds(140, 90, 580, 60);
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -302,8 +296,9 @@ private String obtenerEspecialidadProximaCita() {
                     .addContainerGap(79, Short.MAX_VALUE)))
         );
 
-        jButton1.setBackground(new java.awt.Color(242, 242, 242));
+        jButton1.setBackground(new java.awt.Color(15, 220, 167));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("AGENDAR CITA");
         jButton1.setBorderPainted(false);
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -322,7 +317,7 @@ private String obtenerEspecialidadProximaCita() {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap(185, Short.MAX_VALUE)
+                .addContainerGap(189, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(66, 66, 66)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -344,8 +339,25 @@ private String obtenerEspecialidadProximaCita() {
                 .addGap(26, 26, 26))
         );
 
-        getContentPane().add(jPanel6);
-        jPanel6.setBounds(0, 172, 846, 320);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(140, 140, 140)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 580, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(22, 22, 22)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -379,7 +391,7 @@ private String obtenerEspecialidadProximaCita() {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_jButton1MouseEntered
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
