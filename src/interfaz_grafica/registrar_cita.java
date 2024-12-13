@@ -155,10 +155,13 @@ public class registrar_cita extends javax.swing.JFrame{
         getContentPane().setLayout(null);
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(null);
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
         jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
         jSeparator1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel3.add(jSeparator1);
+        jSeparator1.setBounds(0, 56, 520, 3);
 
         comboxEspecialidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione", "Cardiologia (123)", "Pediatria (456)", "Dermatologían(789)", "Gastroenterología (345)", " " }));
         comboxEspecialidad.addActionListener(new java.awt.event.ActionListener() {
@@ -166,17 +169,25 @@ public class registrar_cita extends javax.swing.JFrame{
                 comboxEspecialidadActionPerformed(evt);
             }
         });
+        jPanel3.add(comboxEspecialidad);
+        comboxEspecialidad.setBounds(170, 257, 159, 32);
 
         jLabel7.setText("Fecha de cita");
+        jPanel3.add(jLabel7);
+        jLabel7.setBounds(170, 119, 69, 16);
 
         jLabel9.setText("Especialidad");
+        jPanel3.add(jLabel9);
+        jLabel9.setBounds(170, 227, 65, 16);
 
         jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(204, 204, 204));
         jLabel15.setText("DD/MM/YY");
+        jPanel3.add(jLabel15);
+        jLabel15.setBounds(170, 179, 54, 14);
 
         jButton1.setBackground(new java.awt.Color(15, 196, 167));
-        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 12)); // NOI18N
+        jButton1.setFont(new java.awt.Font("Bahnschrift", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("ENVIAR");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -184,10 +195,16 @@ public class registrar_cita extends javax.swing.JFrame{
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel3.add(jButton1);
+        jButton1.setBounds(279, 373, 180, 51);
 
         jLabel16.setText("Hora de cita");
+        jPanel3.add(jLabel16);
+        jLabel16.setBounds(409, 119, 64, 16);
 
         campFecha_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jPanel3.add(campFecha_cita);
+        campFecha_cita.setBounds(170, 149, 160, 30);
 
         campHora_cita.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("h:mm "))));
         campHora_cita.addActionListener(new java.awt.event.ActionListener() {
@@ -195,12 +212,17 @@ public class registrar_cita extends javax.swing.JFrame{
                 campHora_citaActionPerformed(evt);
             }
         });
+        jPanel3.add(campHora_cita);
+        campHora_cita.setBounds(410, 149, 160, 30);
 
         jLabel18.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(204, 204, 204));
         jLabel18.setText("HH:MM");
+        jPanel3.add(jLabel18);
+        jLabel18.setBounds(410, 179, 39, 14);
 
-        jPanel4.setBackground(new java.awt.Color(244, 245, 245));
+        jPanel4.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel4.setForeground(new java.awt.Color(255, 255, 255));
 
         retroBoton.setBackground(new java.awt.Color(244, 245, 245));
         retroBoton.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -213,6 +235,7 @@ public class registrar_cita extends javax.swing.JFrame{
         });
 
         jLabel1.setFont(new java.awt.Font("Bahnschrift", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Registra tu cita");
         jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -223,9 +246,9 @@ public class registrar_cita extends javax.swing.JFrame{
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addComponent(retroBoton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(107, 107, 107)
+                .addGap(235, 235, 235)
                 .addComponent(jLabel1)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -237,75 +260,13 @@ public class registrar_cita extends javax.swing.JFrame{
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel18)
-                    .addComponent(campCod_espec, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel7)
-                        .addGap(170, 170, 170)
-                        .addComponent(jLabel16))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(campFecha_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(campHora_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel9))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(190, 190, 190)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(47, 47, 47)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel16))
-                .addGap(14, 14, 14)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(campFecha_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(campHora_cita, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel15)
-                    .addComponent(jLabel18))
-                .addGap(36, 36, 36)
-                .addComponent(jLabel9)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(comboxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(campCod_espec, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(56, 56, 56)))
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        jPanel3.add(jPanel4);
+        jPanel4.setBounds(0, 0, 780, 80);
+        jPanel3.add(campCod_espec);
+        campCod_espec.setBounds(410, 257, 160, 32);
 
         getContentPane().add(jPanel3);
-        jPanel3.setBounds(6, 6, 520, 381);
+        jPanel3.setBounds(6, 6, 780, 520);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -322,53 +283,9 @@ public class registrar_cita extends javax.swing.JFrame{
         // TODO add your handling code here:
     }//GEN-LAST:event_campDniActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    Cita_abstrac c;
-    String especialidad = comboxEspecialidad.getSelectedItem().toString();
-    String hora_cita = campHora_cita.getText();
-    String fecha_cita = campFecha_cita.getText();
-    int cod_espec  = Integer.parseInt(campCod_espec.getText());
-    c = new Cita_abstrac(fecha_cita, hora_cita, especialidad,cod_espec) {
-        
-        @Override
-        public void registrar_cita() {
-            try {
-            PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(id_especialidad,Nombre_Espec) VALUES(?,?)");
-            guardar_esp.setInt(1,cod_espec);
-            guardar_esp.setString(2, especialidad);
-            guardar_esp.executeUpdate();
-            PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora,id_especialidad) VALUES (?,?,?)");
-            guardar_cita.setString(1,fecha_cita);
-            guardar_cita.setString(2,hora_cita);
-            guardar_cita.setInt(3, cod_espec);
-            guardar_cita.executeUpdate();
-            JOptionPane.showMessageDialog(null, " Cita agendada");
-            campHora_cita.setText("");
-            campFecha_cita.setText("");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e + " No se pudo agendar la cita");
-            }
-        }
-    };
-    c.registrar_cita();
-    
-        menu_principal ventanaCita = new menu_principal();
-        ventanaCita.setVisible(true);
-        ventanaCita.setLocationRelativeTo(null);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void campNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campNumActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campNumActionPerformed
-
-    private void comboxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxEspecialidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_comboxEspecialidadActionPerformed
-
-    private void campHora_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campHora_citaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campHora_citaActionPerformed
 
     private void retroBotonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_retroBotonActionPerformed
         menu_principal ventanaCita = new menu_principal();
@@ -376,6 +293,50 @@ public class registrar_cita extends javax.swing.JFrame{
         ventanaCita.setLocationRelativeTo(null);
         this.setVisible(false);
     }//GEN-LAST:event_retroBotonActionPerformed
+
+    private void campHora_citaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campHora_citaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campHora_citaActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        Cita_abstrac c;
+        String especialidad = comboxEspecialidad.getSelectedItem().toString();
+        String hora_cita = campHora_cita.getText();
+        String fecha_cita = campFecha_cita.getText();
+        int cod_espec  = Integer.parseInt(campCod_espec.getText());
+        c = new Cita_abstrac(fecha_cita, hora_cita, especialidad,cod_espec) {
+
+            @Override
+            public void registrar_cita() {
+                try {
+                    PreparedStatement guardar_esp = conect.prepareStatement("INSERT INTO ESPECIALIDAD(id_especialidad,Nombre_Espec) VALUES(?,?)");
+                    guardar_esp.setInt(1,cod_espec);
+                    guardar_esp.setString(2, especialidad);
+                    guardar_esp.executeUpdate();
+                    PreparedStatement guardar_cita = conect.prepareStatement("INSERT INTO Cita_Med(Fecha, Hora,id_especialidad) VALUES (?,?,?)");
+                    guardar_cita.setString(1,fecha_cita);
+                    guardar_cita.setString(2,hora_cita);
+                    guardar_cita.setInt(3, cod_espec);
+                    guardar_cita.executeUpdate();
+                    JOptionPane.showMessageDialog(null, " Cita agendada");
+                    campHora_cita.setText("");
+                    campFecha_cita.setText("");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(null, e + " No se pudo agendar la cita");
+                }
+            }
+        };
+        c.registrar_cita();
+
+        menu_principal ventanaCita = new menu_principal();
+        ventanaCita.setVisible(true);
+        ventanaCita.setLocationRelativeTo(null);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void comboxEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboxEspecialidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_comboxEspecialidadActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campApellido;
