@@ -145,21 +145,27 @@ public class usuario extends javax.swing.JFrame {
         );
 
         lblGenero.setForeground(new java.awt.Color(15, 196, 167));
-        lblGenero.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
+        lblGenero.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
 
         jPanel2.setBackground(new java.awt.Color(48, 49, 75));
 
         lblNombre.setForeground(new java.awt.Color(15, 196, 167));
-        lblNombre.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
+        lblNombre.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
 
         lblCelular.setForeground(new java.awt.Color(15, 196, 167));
-        lblCelular.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
+        lblCelular.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
 
         lblFecha_nac.setForeground(new java.awt.Color(15, 196, 167));
-        lblFecha_nac.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
+        lblFecha_nac.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
 
         lblApellido.setForeground(new java.awt.Color(15, 196, 167));
-        lblApellido.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
+        lblApellido.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(41, 43, 45)), "Apellido", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Dialog", 0, 12), new java.awt.Color(15, 196, 167))); // NOI18N
+
+        campIngresado_dni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campIngresado_dniActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setBackground(new java.awt.Color(15, 196, 167));
         btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
@@ -277,6 +283,10 @@ public class usuario extends javax.swing.JFrame {
         ventanaCita.setLocationRelativeTo(null);
         this.setVisible(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void campIngresado_dniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campIngresado_dniActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campIngresado_dniActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField A_usuario;
